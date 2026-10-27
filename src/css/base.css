@@ -1,0 +1,7 @@
+/* ============ 2. BASE ============ */
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+/* Main font: Avenir -> Nunito Sans -> system sans-serif */
+body{background:var(--deep);color:var(--ink);font-family:"Avenir Next",Avenir,"Nunito Sans","Helvetica Neue",Arial,sans-serif;font-weight:400;overflow-x:hidden;transition:background .5s,color .5s}
+/* Fixed full-screen canvas that holds the 3D scene */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0}

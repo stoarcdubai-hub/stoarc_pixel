@@ -1,0 +1,62 @@
+header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 18px var(--w-pad, 40px);
+  color: var(--w-fg, #f1efe9); mix-blend-mode: difference;
+}
+.logo { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; color: inherit; text-decoration: none; }
+header nav { display: flex; gap: 28px; }
+header nav a { font-size: 11px; letter-spacing: .16em; color: inherit; text-decoration: none; opacity: .75; transition: opacity .2s; }
+header nav a:hover { opacity: 1; }
+.hr { display: flex; align-items: center; gap: 12px; }
+.tbtn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  background: none; color: inherit; border: 1px solid currentColor; border-radius: 999px;
+  padding: 8px 14px; font: inherit; font-size: 10px; letter-spacing: .14em;
+}
+.bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; }
+.bars b { width: 2px; height: 3px; background: currentColor; }
+.tbtn[aria-pressed="true"] .bars b { animation: eq .8s ease-in-out infinite alternate; }
+.tbtn[aria-pressed="true"] .bars b:nth-child(2) { animation-delay: .2s; }
+.tbtn[aria-pressed="true"] .bars b:nth-child(3) { animation-delay: .4s; }
+@keyframes eq { to { height: 10px; } }
+#theme i { width: 10px; height: 10px; border-radius: 50%; border: 1px solid currentColor; background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+@media (max-width: 900px) { header nav, .tbtn span { display: none; } }
+
+.pill {
+  display: inline-block; text-decoration: none; color: inherit;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  border: 1px solid currentColor; border-radius: 999px; padding: 12px 20px;
+  transition: background .25s, color .25s;
+}
+.pill:hover { background: var(--w-fg, #f1efe9); color: var(--w-bg, #0b0b0b); }
+
+/* ===== MOBILE HEADER + MENU ===== */
+html { -webkit-text-size-adjust: 100%; }
+
+.menu-btn { display: none; width: 44px; height: 44px; padding: 0; justify-content: center; flex-direction: column; gap: 5px; }
+.menu-btn u { display: block; width: 16px; height: 1px; background: currentColor; transition: transform .25s; text-decoration: none; }
+.menu-btn[aria-expanded="true"] u:first-child { transform: translateY(3px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] u:last-child  { transform: translateY(-3px) rotate(-45deg); }
+
+.m-menu {
+  position: fixed; inset: 0; z-index: 49;
+  display: none; flex-direction: column; justify-content: center; gap: 8px;
+  padding: 96px var(--w-pad, 24px) 40px;
+  background: var(--deep); color: var(--ink);
+  touch-action: none; overscroll-behavior: contain;
+}
+.m-menu.open { display: flex; }
+.m-menu a { color: inherit; text-decoration: none; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(40px, 13vw, 64px); line-height: 1.1; padding: 6px 0; }
+.m-menu .m-cta { margin-top: 24px; font-family: inherit; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; align-self: flex-start; border: 1px solid currentColor; border-radius: 999px; padding: 14px 22px; }
+
+@media (max-width: 900px) {
+  header { padding: 12px var(--w-pad, 20px); gap: 12px; }
+  .logo { font-size: 24px; }
+  .hr { gap: 8px; }
+  .tbtn { min-height: 44px; min-width: 44px; justify-content: center; padding: 8px 12px; }
+  .menu-btn { display: inline-flex; }
+}
+@media (max-width: 600px) {
+  .hr .pill { display: none; }   /* the CTA lives in the menu on phones */
+}

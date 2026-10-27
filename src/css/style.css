@@ -1,0 +1,6 @@
+/* SHARED STYLES: used by every page of the site.
+   Order matters, keep it: colours first, then base, header, footer. */
+@import "./variables.css";
+@import "./base.css";
+@import "./header.css";
+@import "./footer.css";

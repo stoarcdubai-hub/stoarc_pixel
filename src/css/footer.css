@@ -1,0 +1,10 @@
+footer {
+  position: relative; z-index: 2;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px var(--w-pad, 40px);
+  background: var(--w-bg, #0b0b0b); color: var(--w-fg, #f1efe9);
+  border-top: 1px solid var(--w-line, rgba(241, 239, 233, .18));
+  font-size: 11px; letter-spacing: .16em;
+}
+footer a { color: inherit; text-decoration: none; opacity: .75; }
+footer a:hover { opacity: 1; }

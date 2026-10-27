@@ -1,0 +1,36 @@
+{
+  "cafe-interior-design-al-ain/sora-cafe-interior-al-ain": {
+    "width": 800,
+    "height": 1000,
+    "sizes": [
+      800
+    ]
+  },
+  "corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai": {
+    "width": 1600,
+    "height": 973,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "residential-development-architecture-ajman/t30-residence-unit-ajman": {
+    "width": 1600,
+    "height": 900,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "train-station-architecture-china/casa-sud-train-station-china": {
+    "width": 1600,
+    "height": 900,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "corporate-office-building-architecture-dubai",
+    "name": "H2O Group of Companies",
+    "heading": "Corporate Office Building Architecture in Dubai, UAE",
+    "seoTitle": "Corporate Office Building Architecture in Dubai | StoArc",
+    "description": "Architectural design and consultancy for the H2O Group of Companies corporate office building in Dubai, UAE, by StoArc.",
+    "location": "Dubai, UAE",
+    "type": "Corporate Office Building",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "H2O Group of Companies is a corporate office building in Dubai, UAE, within our commercial architecture work.",
+      "StoArc's scope on the project was architectural design and consultancy."
+    ],
+    "images": [
+      { "file": "h2o-group-corporate-office-building-dubai", "alt": "H2O Group of Companies corporate office building in Dubai, UAE" }
+    ]
+  },
+  {
+    "slug": "cafe-interior-design-al-ain",
+    "name": "SORA Cafe",
+    "heading": "Cafe Interior Design in Al Ain, UAE",
+    "seoTitle": "SORA Cafe Interior Design in Al Ain, UAE | StoArc",
+    "description": "Interior design consultancy for SORA Cafe, a cafe and restaurant interior project in Al Ain, UAE. A hospitality project by StoArc.",
+    "location": "Al Ain, UAE",
+    "type": "Cafe / Restaurant Interior",
+    "services": ["Interior Design Consultancy"],
+    "body": [
+      "SORA Cafe is a cafe and restaurant interior in Al Ain, UAE, within our hospitality interior design work.",
+      "StoArc provided interior design consultancy for the project."
+    ],
+    "images": [
+      { "file": "sora-cafe-interior-al-ain", "alt": "SORA Cafe interior in Al Ain, UAE" }
+    ]
+  },
+  {
+    "slug": "train-station-architecture-china",
+    "name": "Casa Sud Train Station",
+    "heading": "Train Station Architecture and Urban Design in China",
+    "seoTitle": "Casa Sud Train Station Architecture, China | StoArc",
+    "description": "Architectural and urban design for Casa Sud Train Station in China, an infrastructure project for Dongguan Guotie Poly Industrial Development.",
+    "location": "China",
+    "type": "Infrastructure Architecture / Urban Design",
+    "services": ["Architectural Design", "Urban Design"],
+    "body": [
+      "Casa Sud Train Station is an infrastructure project in China, combining architecture and urban design.",
+      "The client was Dongguan Guotie Poly Industrial Development Co., Ltd.",
+      "StoArc's scope was architectural design and urban design."
+    ],
+    "images": [
+      { "file": "casa-sud-train-station-china", "alt": "Casa Sud Train Station architectural design in China" }
+    ]
+  },
+  {
+    "slug": "residential-development-architecture-ajman",
+    "name": "T30 Residence Unit",
+    "heading": "Residential Development Architecture in Ajman, UAE",
+    "seoTitle": "T30 Residence Unit Architecture in Ajman, UAE | StoArc",
+    "description": "Architectural design and consultancy for T30 Residence Unit, a contemporary residential development in Ajman, UAE, by StoArc.",
+    "location": "Ajman, UAE",
+    "type": "Residential Development",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "T30 Residence Unit is a contemporary residential development in Ajman, UAE, designed to provide comfortable and efficient urban living solutions.",
+      "The project focuses on modern façade expression, functional planning, and an enhanced resident experience through integrated balconies, landscaped areas, and balanced architectural proportions.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      { "file": "t30-residence-unit-ajman", "alt": "T30 Residence Unit residential development in Ajman, UAE" }
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+/* ============ WORK PAGE ============
+   Colour names below use fallbacks. If your variables.css uses different
+   names (e.g. --bg, --fg), rename them here to match. */
+
+:root {
+  --w-bg: var(--bg, #0b0b0b);
+  --w-fg: var(--fg, #f1efe9);
+  --w-dim: var(--muted, rgba(241, 239, 233, .55));
+  --w-line: var(--line, rgba(241, 239, 233, .18));
+  --w-serif: "Instrument Serif", Georgia, serif;
+  --w-pad: clamp(20px, 4vw, 56px);
+}
+:root[data-theme="light"] {
+  --w-bg: var(--bg, #f4f2ec);
+  --w-fg: var(--fg, #111);
+  --w-dim: var(--muted, rgba(17, 17, 17, .55));
+  --w-line: var(--line, rgba(17, 17, 17, .18));
+}
+
+/* ---------- 3D canvas + labels ---------- */
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.lbl {
+  position: fixed; left: 0; top: 0; z-index: 3; pointer-events: none;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--w-fg); opacity: 0; white-space: nowrap;
+  padding: 3px 8px; border: 1px solid var(--w-line);
+}
+
+/* ---------- Loader ---------- */
+#pre {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 8px;
+  padding: var(--w-pad);
+  background: var(--w-bg); color: var(--w-fg);
+}
+#pre small { font-size: 11px; letter-spacing: .2em; color: var(--w-dim); }
+#pre span { font-family: var(--w-serif); font-size: clamp(80px, 18vw, 240px); line-height: .85; }
+
+/* ---------- Hero (pinned by GSAP) ---------- */
+.hero { position: relative; z-index: 2; height: 100vh; overflow: hidden; color: var(--w-fg); }
+.hero .kick { position: absolute; left: var(--w-pad); top: 18vh; max-width: 340px; font-size: 15px; line-height: 1.5; }
+.tg { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--w-dim); margin: 0 0 12px; }
+.hbtn, .btn, .pill {
+  display: inline-block; text-decoration: none; color: inherit;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  border: 1px solid var(--w-fg); border-radius: 999px; padding: 12px 20px;
+  transition: background .25s, color .25s;
+}
+.hbtn { margin-top: 20px; }
+.hbtn:hover, .btn:hover, .pill:hover { background: var(--w-fg); color: var(--w-bg); }
+
+.hud {
+  position: absolute; right: var(--w-pad); top: 18vh; text-align: right;
+  font-size: 11px; line-height: 1.7; letter-spacing: .1em; text-transform: uppercase; color: var(--w-dim);
+}
+.big { position: absolute; left: var(--w-pad); right: var(--w-pad); bottom: 8vh; line-height: .9; }
+.big .script { display: block; font-family: var(--w-serif); font-style: italic; font-size: clamp(56px, 11vw, 190px); }
+.big .caps { display: block; font-size: clamp(48px, 10vw, 170px); font-weight: 300; text-transform: uppercase; letter-spacing: -.02em; }
+.ln { display: block; overflow: hidden; }
+.ln > span { display: inline-block; will-change: transform; }
+
+.cap { position: absolute; left: var(--w-pad); bottom: 12vh; max-width: 460px; opacity: 0; }
+.cap h3 { font-family: var(--w-serif); font-weight: 400; font-size: clamp(24px, 3vw, 40px); line-height: 1.15; margin: 0; }
+.prog { position: absolute; right: var(--w-pad); bottom: 3vh; font-size: 11px; letter-spacing: .16em; color: var(--w-dim); }
+
+/* ---------- Marquee ---------- */
+.strip { position: relative; z-index: 2; overflow: hidden; border-block: 1px solid var(--w-line); background: var(--w-bg); color: var(--w-fg); }
+#mq { display: flex; width: max-content; gap: 48px; padding: 18px 0; font-family: var(--w-serif); font-size: clamp(28px, 4vw, 56px); white-space: nowrap; }
+#mq span { display: inline-flex; align-items: center; gap: 48px; }
+
+/* ---------- Content sections ---------- */
+.block { position: relative; z-index: 2; background: var(--w-bg); color: var(--w-fg); padding: clamp(64px, 10vw, 140px) var(--w-pad); }
+.block h2 { font-family: var(--w-serif); font-weight: 400; font-size: clamp(44px, 8vw, 128px); line-height: .95; margin: 0 0 32px; }
+.tag { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--w-dim); margin: 0 0 20px; }
+.intro, .quote { max-width: 720px; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.6; }
+.quote { font-family: var(--w-serif); font-size: clamp(28px, 4vw, 56px); line-height: 1.15; max-width: 900px; }
+
+/* Lists (services + projects) */
+.list { list-style: none; margin: 48px 0 0; padding: 0; border-top: 1px solid var(--w-line); }
+.list li { border-bottom: 1px solid var(--w-line); }
+.list .row, .list.proj a {
+  display: grid; align-items: baseline; gap: 24px; padding: 22px 0;
+  color: inherit; text-decoration: none;
+}
+.list .row { grid-template-columns: 60px 1.2fr 2fr 24px; }
+.list.proj a { grid-template-columns: 60px 1fr 24px; transition: padding .3s, opacity .3s; }
+.list.proj a:hover { padding-left: 16px; }
+.list.proj:hover a:not(:hover) { opacity: .45; }
+.list .num { font-size: 12px; color: var(--w-dim); }
+.list .name { font-family: var(--w-serif); font-size: clamp(22px, 2.6vw, 38px); }
+.list .desc { font-size: 14px; line-height: 1.55; color: var(--w-dim); }
+
+/* About, divisions, contact */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); margin-top: 48px; }
+.about h3, .contact h4 { font-size: 11px; letter-spacing: .18em; color: var(--w-dim); margin: 0 0 12px; font-weight: 600; }
+.about p, .contact p { line-height: 1.65; margin: 0 0 20px; }
+.divs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; margin-top: 48px; background: var(--w-line); border: 1px solid var(--w-line); }
+.div1 { background: var(--w-bg); padding: 28px; font-size: 14px; line-height: 1.55; color: var(--w-dim); }
+.div1 h3 { font-family: var(--w-serif); font-weight: 400; font-size: 28px; color: var(--w-fg); margin: 12px 0; }
+.btn { margin: 32px 0 56px; }
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+.contact a { color: inherit; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .hud { display: none; }
+  .hero .kick { top: 14vh; }
+  .list .row { grid-template-columns: 40px 1fr; }
+  .list .desc { grid-column: 2; }
+  .about { grid-template-columns: 1fr; }
+}
+
+/* ===== HERO REFINEMENT (CSS only: GSAP and the 3D scene are untouched) ===== */
+
+/* one call to action: the header button stays, the hero duplicate is hidden */
+.hero .hbtn { display: none; }
+
+/* soft scrims so text stays readable over the wireframe city */
+.hero::before, .hero::after { content: ""; position: absolute; pointer-events: none; z-index: -1; }
+.hero::before { inset: 0; background: linear-gradient(90deg, var(--w-bg) 0%, transparent 48%); opacity: .7; }
+.hero::after  { left: 0; right: 0; bottom: 0; height: 55%; background: linear-gradient(0deg, var(--w-bg) 0%, transparent 100%); opacity: .55; }
+
+/* intro block: clearer hierarchy */
+.hero .kick { top: 20vh; max-width: 380px; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
+.hero .kick .tg {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--w-fg); font-weight: 600; margin-bottom: 18px;
+}
+.hero .kick .tg::before { content: ""; width: 32px; height: 1px; background: currentColor; }
+
+/* technical readout: easier to read, with an accent rule */
+.hud { top: 20vh; color: var(--w-fg); padding-right: 16px; border-right: 1px solid var(--w-line); }
+.hud #ex { font-variant-numeric: tabular-nums; }
+
+/* scene counter + scroll cue as one element */
+.prog { display: flex; align-items: center; gap: 14px; color: var(--w-fg); font-variant-numeric: tabular-nums; }
+.prog::after { content: ""; width: 56px; height: 1px; background: currentColor; opacity: .6; }
+
+/* floor labels read as tags, so they no longer fight with the big type */
+.lbl {
+  background: color-mix(in srgb, var(--w-bg) 72%, transparent);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border-color: var(--w-fg);
+}
+
+@media (max-width: 760px) {
+  .hero .kick { top: 16vh; max-width: 280px; }
+  .hero::before { background: linear-gradient(90deg, var(--w-bg) 0%, transparent 85%); }
+}
