@@ -1,3 +1,66 @@
+/* Skip link (keyboard / screen reader) */
+.skip{position:fixed;left:12px;top:-60px;z-index:10000;padding:10px 14px;background:var(--ink);color:var(--deep);font:600 13px/1 "Nunito Sans",sans-serif;text-decoration:none}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
+
+/* h1 keeps the look of the old <div class="big"> */
+:where(h1.big){margin:0;font-size:inherit;font-weight:inherit}
+
+/* Visible keyboard focus */
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+/* Header follows the black / white theme (no blend effect) */
+header{
+  mix-blend-mode:normal;
+  color:var(--ink);
+  background:color-mix(in srgb,var(--deep) 88%,transparent);  /* keeps it readable over photos */
+  transition:background .5s,color .5s;
+}
+
+/* Notch / status bar safe areas (the page uses viewport-fit=cover) */
+header{
+  padding-top:calc(18px + env(safe-area-inset-top,0px));
+  padding-left:max(var(--w-pad,40px),env(safe-area-inset-left,0px));
+  padding-right:max(var(--w-pad,40px),env(safe-area-inset-right,0px));
+}
+.m-menu{
+  padding-top:calc(96px + env(safe-area-inset-top,0px));
+  padding-bottom:calc(40px + env(safe-area-inset-bottom,0px));
+}
+@media (max-width:900px){
+  header{
+    padding-top:calc(12px + env(safe-area-inset-top,0px));
+    padding-left:max(var(--w-pad,20px),env(safe-area-inset-left,0px));
+    padding-right:max(var(--w-pad,20px),env(safe-area-inset-right,0px));
+  }
+}
+
+/* Floor labels: small capsule tags that pop in during scene 2 */
+.lbl{
+  border-radius:999px;
+  padding:5px 12px 5px 10px;
+  font-size:10px;
+  letter-spacing:.14em;
+  will-change:transform,opacity;
+}
+.lbl::before{
+  content:"";display:inline-block;width:6px;height:6px;margin-right:8px;
+  border-radius:50%;background:currentColor;vertical-align:middle;
+}
+
+/* Touch screens: bigger tap targets, no sticky hover */
+@media (pointer:coarse){
+  .tbtn,.pill,.btn{min-height:44px}
+  .pill,.btn{display:inline-flex;align-items:center}
+}
+@media (hover:none){
+  .pill:hover,.btn:hover{background:none;color:inherit}
+}
+
+/* Respect "reduce motion" setting */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
 /* Service capsules (scene 2): 3 left, 3 right, 1 top centre */
 .svc{position:absolute;inset:0;margin:0;padding:0;list-style:none;pointer-events:none;z-index:3}
 .svc li{
