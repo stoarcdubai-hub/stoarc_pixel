@@ -1,0 +1,21 @@
+/* Service capsules (scene 2): 3 left, 3 right, 1 top centre */
+.svc{position:absolute;inset:0;margin:0;padding:0;list-style:none;pointer-events:none;z-index:3}
+.svc li{
+  position:absolute;opacity:0;white-space:nowrap;
+  padding:6px 14px 6px 12px;border:1px solid var(--w-fg);border-radius:999px;
+  background:color-mix(in srgb,var(--w-bg) 78%,transparent);
+  color:var(--w-fg);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+}
+.svc li::before{
+  content:"";display:inline-block;width:6px;height:6px;margin-right:8px;
+  border-radius:50%;background:currentColor;vertical-align:middle;
+}
+.svc .l{left:var(--w-pad)}
+.svc .r{right:var(--w-pad)}
+.svc .t1{top:34vh}
+.svc .t2{top:44vh}
+.svc .t3{top:54vh}
+.svc .c{top:18vh;left:0;right:0;margin-inline:auto;width:max-content}
+@media (max-width:760px){
+  .svc li{font-size:10px;padding:5px 10px 5px 9px;letter-spacing:.1em}
+}

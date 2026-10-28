@@ -8,32 +8,50 @@ import { ringA, ringB } from './drafting.js';
 import { dust } from './dust.js';
 import { m } from './input.js';
 
-const lbls=[document.getElementById('l0'),document.getElementById('l1'),document.getElementById('l2')], lbIdx=[0,7,15], v=new THREE.Vector3(); // lbIdx = which floors get a label
+const lbls=[document.getElementById('l0'),document.getElementById('l1'),document.getElementById('l2')], lbIdx=[0,7,15], v=new THREE.Vector3();
 const exEl=document.getElementById('ex');
+
+const small = matchMedia('(max-width: 860px), (pointer: coarse)').matches;
+let W=innerWidth, H=innerHeight, frame=0, lastEx='';
+const lastOp=[null,null,null];
+addEventListener('resize',()=>{ W=innerWidth; H=innerHeight; });
+
+// If the graphics context is lost (phone low on memory), let it recover
+renderer.domElement.addEventListener('webglcontextlost',e=>e.preventDefault());
 
 const clock=new THREE.Clock();
 gsap.ticker.add(()=>{
   const t=clock.getElapsedTime();
-  m.sx+=(m.x-m.sx)*.05; m.sy+=(m.y-m.sy)*.05;                      // smooth mouse follow
-  S.ang+=.0012;                                                     // slow constant camera orbit
-  // Position every floor: base height + explode gap + intro drop
+  m.sx+=(m.x-m.sx)*.05; m.sy+=(m.y-m.sy)*.05;
+  S.ang+=.0012;
   levels.forEach(lv=>{ lv.position.y=lv.userData.i*(PITCH+S.ex*GAP)+lv.userData.drop; });
-  // Stretch the core line to match the exploded height
   const Hc=(N-1)*(PITCH+S.ex*GAP)+PITCH;
   core.scale.y=Hc/(N*PITCH); core.position.y=Hc/2; core.material.opacity=.3*(1-S.ex*.6);
   ringA.rotation.y=t*.05; ringB.rotation.y=-t*.03;
   dust.position.y=Math.sin(t*.3)*.3;
-  // Camera orbits the tower; mouse nudges angle and height
   const a=S.ang+m.sx*.35;
   camera.position.set(Math.cos(a)*S.rad, S.h+m.sy*1.2, Math.sin(a)*S.rad);
   camera.lookAt(0,S.lookY,0);
+
+  // Phones: draw every second frame (half the work, looks almost the same)
+  frame++;
+  if (small && (frame & 1)) return;
+
   renderer.render(scene,camera);
-  // Move the HTML labels so they stick to their floors
+
+  // Floor-label capsules: pop in one after another from the side (scene 2)
+  const lab=S.lab||0;
   lbls.forEach((el,k)=>{
     v.set(2.6,levels[lbIdx[k]].position.y,0); v.project(camera);
-    const x=(v.x*.5+.5)*innerWidth, y=(-v.y*.5+.5)*innerHeight;
+    const x=(v.x*.5+.5)*W, y=(-v.y*.5+.5)*H;
     el.style.transform=`translate(${x}px,${y}px)`;
-    el.style.opacity=(S.intro*S.hero)*(v.z<1?1:0);                  // hidden during intro, after scene 2, or behind the camera
+    const p=Math.min(1,Math.max(0,lab*1.7-k*.35));          // each capsule starts a little after the one before
+    const e=1-(1-p)*(1-p)*(1-p);                            // ease-out
+    el.style.translate=`${(1-e)*70}px 0`;                   // slides in from the right side
+    const op=String((S.intro*S.hero*e)*(v.z<1?1:0));
+    if (op!==lastOp[k]) { el.style.opacity=op; lastOp[k]=op; }
   });
-  exEl.textContent=String(Math.round(S.ex*100)).padStart(3,'0');    // "Explode 000%" readout
+
+  const ex=String(Math.round(S.ex*100)).padStart(3,'0');
+  if (ex!==lastEx) { exEl.textContent=ex; lastEx=ex; }
 });

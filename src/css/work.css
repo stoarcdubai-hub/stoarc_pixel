@@ -1,20 +1,13 @@
 /* ============ WORK PAGE ============
-   Colour names below use fallbacks. If your variables.css uses different
-   names (e.g. --bg, --fg), rename them here to match. */
+   Colours come from variables.css (--deep, --ink, --mut, --line). */
 
 :root {
-  --w-bg: var(--bg, #0b0b0b);
-  --w-fg: var(--fg, #f1efe9);
-  --w-dim: var(--muted, rgba(241, 239, 233, .55));
-  --w-line: var(--line, rgba(241, 239, 233, .18));
+  --w-bg: var(--deep);
+  --w-fg: var(--ink);
+  --w-dim: var(--mut);
+  --w-line: var(--line);
   --w-serif: "Instrument Serif", Georgia, serif;
   --w-pad: clamp(20px, 4vw, 56px);
-}
-:root[data-theme="light"] {
-  --w-bg: var(--bg, #f4f2ec);
-  --w-fg: var(--fg, #111);
-  --w-dim: var(--muted, rgba(17, 17, 17, .55));
-  --w-line: var(--line, rgba(17, 17, 17, .18));
 }
 
 /* ---------- 3D canvas + labels ---------- */
@@ -37,7 +30,7 @@
 #pre span { font-family: var(--w-serif); font-size: clamp(80px, 18vw, 240px); line-height: .85; }
 
 /* ---------- Hero (pinned by GSAP) ---------- */
-.hero { position: relative; z-index: 2; height: 100vh; overflow: hidden; color: var(--w-fg); }
+.hero { position: relative; z-index: 2; height: 100vh; height: 100svh; overflow: hidden; color: var(--w-fg); }
 .hero .kick { position: absolute; left: var(--w-pad); top: 18vh; max-width: 340px; font-size: 15px; line-height: 1.5; }
 .tg { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--w-dim); margin: 0 0 12px; }
 .hbtn, .btn, .pill {
@@ -106,6 +99,7 @@
   .hud { display: none; }
   .hero .kick { top: 14vh; }
   .list .row { grid-template-columns: 40px 1fr; }
+  .list .row > span:last-child { display: none; }   /* empty 4th cell: removes the extra gap */
   .list .desc { grid-column: 2; }
   .about { grid-template-columns: 1fr; }
 }
@@ -146,4 +140,24 @@
 @media (max-width: 760px) {
   .hero .kick { top: 16vh; max-width: 280px; }
   .hero::before { background: linear-gradient(90deg, var(--w-bg) 0%, transparent 85%); }
+}
+
+/* ===== PHONE FIXES ===== */
+
+/* Moving labels: no blur on phones (slow), solid background instead */
+@media (max-width: 900px), (pointer: coarse) {
+  .lbl { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--w-bg); }
+}
+
+/* Narrow phones: keep the big headline inside the screen */
+@media (max-width: 420px) {
+  .big .script { font-size: clamp(44px, 15vw, 56px); }
+  .big .caps   { font-size: clamp(34px, 12.5vw, 48px); }
+}
+
+/* Short landscape phones: smaller headline so it does not hit the intro text */
+@media (max-height: 520px) and (orientation: landscape) {
+  .big .script { font-size: clamp(36px, 11vh, 72px); }
+  .big .caps   { font-size: clamp(30px, 9vh, 60px); }
+  .hero .kick  { top: 14vh; max-width: 300px; font-size: 14px; }
 }

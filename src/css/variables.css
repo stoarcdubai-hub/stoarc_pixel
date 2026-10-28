@@ -1,5 +1,5 @@
 /* ============ 1. COLOURS (black / white themes) ============ */
 /* --deep = page background, --ink = main text, --mut = soft grey text,
    --line = divider lines, --hero = colour of text sitting on the 3D scene */
-:root{--deep:#000;--ink:#fff;--mut:#8f8f8f;--line:rgba(255,255,255,.22);--hero:#fff}
-:root[data-theme="light"]{--deep:#fff;--ink:#000;--mut:#666;--line:rgba(0,0,0,.22);--hero:#000}
+:root{color-scheme:dark;--deep:#000;--ink:#fff;--mut:#8f8f8f;--line:rgba(255,255,255,.22);--hero:#fff}
+:root[data-theme="light"]{color-scheme:light;--deep:#fff;--ink:#000;--mut:#666;--line:rgba(0,0,0,.22);--hero:#000}

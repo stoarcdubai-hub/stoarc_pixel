@@ -7,6 +7,7 @@ if (nav && hr) {
   const menu = document.createElement('div');
   menu.className = 'm-menu';
   menu.id = 'm-menu';
+  menu.inert = true;                                   // closed menu can't be tabbed into
   nav.querySelectorAll('a').forEach(a => menu.appendChild(a.cloneNode(true)));
   const pill = hr.querySelector('.pill');
   if (pill) {
@@ -19,18 +20,21 @@ if (nav && hr) {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'tbtn menu-btn';
-  btn.setAttribute('aria-label', 'Menu');
+  btn.setAttribute('aria-label', 'Open menu');
   btn.setAttribute('aria-controls', 'm-menu');
   btn.setAttribute('aria-expanded', 'false');
   btn.innerHTML = '<u></u><u></u>';
   hr.appendChild(btn);
 
-  const set = open => {
+  const set = (open, returnFocus) => {
     menu.classList.toggle('open', open);
+    menu.inert = !open;
     btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!open && returnFocus) btn.focus();
   };
   btn.addEventListener('click', () => set(!menu.classList.contains('open')));
   menu.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) set(false, true); });
   window.addEventListener('resize', () => { if (innerWidth > 900) set(false); });
 }

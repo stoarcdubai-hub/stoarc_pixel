@@ -5,7 +5,7 @@
    right, update the 01 / 04 counter, and snap so one project is shown at a time.
    The last slide is "View more projects" and is not counted as a project.
    =========================================================================== */
-import gsap from 'gsap';
+import { gsap } from './gsap-setup.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,12 +30,21 @@ if (pin && slides.length > 1) {
     slides.forEach((s, i) => gsap.set(s, { zIndex: i + 1 }));
     gsap.set(slides.slice(1), { xPercent: 100 });
 
+    // Only the visible slide can be reached with the keyboard / screen reader
+    let active = -1;
+    const setActive = i => {
+      if (i === active) return;
+      active = i;
+      slides.forEach((s, k) => { s.inert = k !== i; });
+    };
+    setActive(0);
+
     const tl = gsap.timeline({
       defaults: { ease: 'none' },
       scrollTrigger: {
         trigger,
         start: 'top top',
-        end: () => '+=' + window.innerHeight * steps,
+        end: () => '+=' + trigger.offsetHeight * steps,
         pin: true,
         scrub: 0.6,
         snap: { snapTo: 1 / steps, duration: { min: 0.2, max: 0.6 }, ease: 'power1.inOut' },
@@ -43,6 +52,7 @@ if (pin && slides.length > 1) {
         onUpdate: self => {
           const i = Math.round(self.progress * steps);
           if (cur) cur.textContent = pad(Math.min(i + 1, projectCount));
+          setActive(i);
         },
       },
     });
@@ -53,6 +63,17 @@ if (pin && slides.length > 1) {
     }
 
     ScrollTrigger.sort();
-    window.addEventListener('load', () => ScrollTrigger.refresh());
+
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener('load', () => {
+      refresh();
+      // After the page has loaded, fetch the waiting slides' photos so they are ready
+      const warm = () => slides.forEach(s => {
+        const img = s.querySelector('img');
+        if (img) img.loading = 'eager';
+      });
+      (window.requestIdleCallback || (f => setTimeout(f, 1200)))(warm);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
   }
 }

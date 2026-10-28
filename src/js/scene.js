@@ -1,8 +1,15 @@
 /* ============ A. RENDERER, SCENE, CAMERA ============ */
 import * as THREE from 'three';
 
-export const renderer = new THREE.WebGLRenderer({canvas:document.getElementById('gl'),antialias:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const isSmall = matchMedia('(max-width: 860px), (pointer: coarse)').matches;
+
+export const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('gl'),
+  antialias: !isSmall,                 // smooth edges only on desktop
+  powerPreference: 'high-performance'
+});
+// phones: ratio 1.25 max, desktop: 2 max
+renderer.setPixelRatio(Math.min(devicePixelRatio, isSmall ? 1.25 : 2));
 
 export const scene = new THREE.Scene();
 scene.fog = new THREE.Fog(0x000000, 20, 75);     // distant objects fade into the background colour
