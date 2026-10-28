@@ -19,6 +19,8 @@ import './theme.js';             // G. black / white theme
 import './input.js';            // H. resize + mouse
 import './render-loop.js';       // I. per-frame render loop
 import './scroll-scenes.js';     // J. 3-scene pinned scroll (hero pin must come first)
+import './services-ring.js';     // J1. services ring (pinned)
+import './scroll-scenes.js';     // J. 3-scene pinned scroll (hero pin must come first)
 import './projects-scroll.js';   // J2. projects slider (pinned, right to left)
 import './marquee-reveals.js';   // K. marquee + scroll reveals
 import './intro.js';             // L. loader + intro animation
