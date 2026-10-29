@@ -1,51 +1,58 @@
-/* ============ SERVICES RING (scroll-driven, starts as the section enters) ============ */
+/* ============ SERVICES INDEX (drawing-index list) ============ */
 import { gsap } from './gsap-setup.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const sec   = document.querySelector('.svc-sec');
-const ring  = document.getElementById('ring');
-const items = gsap.utils.toArray('#ring .orbit li');
+const head = document.getElementById('si-head');
+const list = document.getElementById('si-list');
+const rows = gsap.utils.toArray('#si-list .si-row');
 
-if (sec && ring && items.length) {
+if (head && list && rows.length) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const small  = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
-  const line = ring.querySelector('.ring-line');
-  const core = ring.querySelector('.ring-core');
-  const N = items.length;
+  const wide   = matchMedia('(min-width: 900px) and (hover: hover)');
 
-  // position of item i on the circle (starts at the top, goes clockwise)
-  const pos = i => {
-    const a = (-90 + i * 360 / N) * Math.PI / 180, R = ring.offsetWidth / 2;
-    return { x: Math.cos(a) * R, y: Math.sin(a) * R };
+  const dNum  = head.querySelector('.sd-num');
+  const dName = head.querySelector('.sd-name');
+  const dDesc = head.querySelector('.sd-desc');
+
+  const setOpen = (row, open) => {
+    row.classList.toggle('open', open);
+    row.querySelector('.si-btn').setAttribute('aria-expanded', String(open));
+  };
+  const closeAll = () => rows.forEach(r => setOpen(r, false));
+
+  /* desktop: hovering a row shows its description in the left column */
+  const showDetail = row => {
+    dNum.textContent  = row.querySelector('.si-num').textContent;
+    dName.textContent = row.querySelector('.si-name').textContent;
+    dDesc.textContent = row.querySelector('.si-more p').textContent;
+    head.classList.add('has-detail');
+    rows.forEach(r => r.classList.toggle('on', r === row));
+  };
+  const clearDetail = () => {
+    head.classList.remove('has-detail');
+    rows.forEach(r => r.classList.remove('on'));
   };
 
-  // which side the name is written on: r = right, l = left, t = above, b = below
-  items.forEach((li, i) => {
-    const a = (-90 + i * 360 / N) * Math.PI / 180, c = Math.cos(a), s = Math.sin(a);
-    li.dataset.side = Math.abs(c) < .2 ? (s < 0 ? 't' : 'b') : (c > 0 ? 'r' : 'l');
-  });
-
-  if (reduce) {
-    // no movement: just place everything on the circle
-    const place = () => gsap.set(items, { x: i => pos(i).x, y: i => pos(i).y });
-    place();
-    addEventListener('resize', place);
-  } else {
-    // The ring forms while the section scrolls into view:
-    // it starts when the section peeks in at the bottom and is complete when it reaches the top.
-    const tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: {
-        trigger: sec,
-        start: small ? 'top 52%' : 'top 52%',
-        end:   small ? 'top 12%' : 'top 8%',
-        scrub: small ? .5 : .8,
-        invalidateOnRefresh: true
-      }
+  rows.forEach(row => {
+    const btn = row.querySelector('.si-btn');
+    row.addEventListener('pointerenter', e => { if (wide.matches && e.pointerType === 'mouse') showDetail(row); });
+    btn.addEventListener('focus', () => { if (wide.matches) showDetail(row); });
+    btn.addEventListener('click', () => {
+      if (wide.matches) { showDetail(row); return; }
+      const was = row.classList.contains('open');   // phones and tablets: tap to open under the row
+      closeAll();
+      setOpen(row, !was);
     });
-    tl.fromTo(line,  { scale: .12, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 }, 0)
-      .fromTo(items, { x: 0, y: 0, scale: .2, opacity: 0 },
-                     { x: i => pos(i).x, y: i => pos(i).y, scale: 1, opacity: 1, duration: 1, stagger: { each: .035 } }, 0)
-      .fromTo(core,  { scale: .88, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 }, 0);
+  });
+  list.addEventListener('pointerleave', e => { if (wide.matches && e.pointerType === 'mouse') clearDetail(); });
+  wide.addEventListener('change', () => { closeAll(); clearDetail(); });
+
+  /* scroll animation: each line draws itself, each name slides up from behind it */
+  if (!reduce) {
+    rows.forEach(row => {
+      const st = { trigger: row, start: 'top 90%', once: true };
+      gsap.fromTo(row, { '--p': 0 }, { '--p': 1, duration: 1.1, ease: 'power3.out', scrollTrigger: st });
+      gsap.from(row.querySelector('.si-name > span'), { yPercent: 105, duration: .9, ease: 'power3.out', scrollTrigger: st });
+    });
   }
 }
