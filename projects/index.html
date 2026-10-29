@@ -5,21 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects | StoArc</title>
 <meta name="description" content="Selected projects by StoArc Architectural &amp; Engineering Consultancy.">
-<link rel="canonical" href="http://localhost:5173/projects/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="StoArc">
-<meta property="og:title" content="Projects | StoArc">
-<meta property="og:description" content="Selected projects by StoArc Architectural &amp; Engineering Consultancy.">
-<meta property="og:url" content="http://localhost:5173/projects/">
-<meta property="og:image" content="http://localhost:5173/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1200.webp">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="/theme-init.js"></script>
 <link rel="stylesheet" href="/src/css/style.css">
 <link rel="stylesheet" href="/src/css/project.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Projects | StoArc","description":"Selected projects by StoArc Architectural & Engineering Consultancy.","url":"http://localhost:5173/projects/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http://localhost:5173/"},{"@type":"ListItem","position":2,"name":"Projects","item":"http://localhost:5173/projects/"}]}]}</script>
 </head>
 <body>
 <header>
@@ -30,33 +21,70 @@
     <a class="pill" href="/work.html#contact">START YOUR PROJECT ↳</a>
   </div>
 </header>
-<main class="pp" id="top">
-  <p class="crumbs"><a href="/">Home</a> / Projects</p>
-  <h1>Projects.</h1>
-  <ul class="cards">
-    <li><a href="/projects/corporate-office-building-architecture-dubai/">
-      <img src="/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1600.webp" srcset="/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-800.webp 800w, /images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1200.webp 1200w, /images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="973" alt="H2O Group of Companies corporate office building in Dubai, UAE" loading="lazy" decoding="async">
-      <span class="cname">H2O Group of Companies</span>
-      <span class="cmeta">Dubai, UAE · Corporate Office Building</span>
-    </a></li>
-    <li><a href="/projects/cafe-interior-design-al-ain/">
-      <img src="/images/projects/cafe-interior-design-al-ain/sora-cafe-interior-al-ain-800.webp" srcset="/images/projects/cafe-interior-design-al-ain/sora-cafe-interior-al-ain-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="1000" alt="SORA Cafe interior in Al Ain, UAE" loading="lazy" decoding="async">
-      <span class="cname">SORA Cafe</span>
-      <span class="cmeta">Al Ain, UAE · Cafe / Restaurant Interior</span>
-    </a></li>
-    <li><a href="/projects/train-station-architecture-china/">
-      <img src="/images/projects/train-station-architecture-china/casa-sud-train-station-china-1600.webp" srcset="/images/projects/train-station-architecture-china/casa-sud-train-station-china-800.webp 800w, /images/projects/train-station-architecture-china/casa-sud-train-station-china-1200.webp 1200w, /images/projects/train-station-architecture-china/casa-sud-train-station-china-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="Casa Sud Train Station architectural design in China" loading="lazy" decoding="async">
-      <span class="cname">Casa Sud Train Station</span>
-      <span class="cmeta">China · Infrastructure Architecture / Urban Design</span>
-    </a></li>
-    <li><a href="/projects/residential-development-architecture-ajman/">
-      <img src="/images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1600.webp" srcset="/images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-800.webp 800w, /images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1200.webp 1200w, /images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="T30 Residence Unit residential development in Ajman, UAE" loading="lazy" decoding="async">
-      <span class="cname">T30 Residence Unit</span>
-      <span class="cmeta">Ajman, UAE · Residential Development</span>
-    </a></li>
-  </ul>
-</main>
+
+<main class="pp" id="top"></main>
+
 <footer><span>© STOARC</span><a href="#top">⇑ SCROLL TO TOP</a></footer>
-<script type="module" src="/src/js/project.js"></script>
+
+<script type="module">
+import all from '/src/data/projects.json';
+/* One page for everything, driven by src/data/projects.json
+   /projects/            -> all projects
+   /projects/?p=<slug>   -> one project                                  */
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const main = document.getElementById('top');
+
+const card = p => `
+  <li><a href="/projects/?p=${esc(p.slug)}">
+    <img src="${esc(p.images[0].url)}" alt="${esc(p.images[0].alt)}" loading="lazy" decoding="async">
+    <span class="cname">${esc(p.name)}</span>
+    <span class="cmeta">${esc([p.location, p.type].filter(Boolean).join(' · '))}</span>
+  </a></li>`;
+
+const setMeta = (title, desc) => {
+  document.title = title;
+  document.querySelector('meta[name="description"]').content = desc;
+};
+
+try {
+  const slug = new URLSearchParams(location.search).get('p');
+  const i = all.findIndex(p => p.slug === slug);
+
+  if (!slug) {
+    // ---------- list ----------
+    main.innerHTML = `
+      <p class="crumbs"><a href="/">Home</a> / Projects</p>
+      <h1>Projects.</h1>
+      <ul class="cards">${all.map(card).join('')}</ul>`;
+  } else if (i < 0) {
+    main.innerHTML = `
+      <p class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a></p>
+      <h1>Project not found.</h1>
+      <p class="back"><a href="/projects/">← All projects</a></p>`;
+  } else {
+    // ---------- one project ----------
+    const p = all[i];
+    setMeta(p.seoTitle, p.description);
+    const facts = [['Location', p.location], ['Type', p.type], ['Services', p.services.join(', ')]]
+      .filter(f => f[1])
+      .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+    const more = [1, 2, 3].map(d => all[(i + d) % all.length]).map(card).join('');
+    main.innerHTML = `
+      <p class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a> / ${esc(p.name)}</p>
+      <h1>${esc(p.heading)}</h1>
+      <dl class="facts">${facts}</dl>
+      <div class="body">${p.body.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+      <div class="gallery">${p.images.map(im => `<figure><img src="${esc(im.url)}" alt="${esc(im.alt)}"></figure>`).join('')}</div>
+      <section class="more"><h2>More projects</h2><ul class="cards">${more}</ul></section>
+      <p class="back"><a href="/projects/">← All projects</a></p>`;
+  }
+} catch (err) {
+  main.innerHTML = '<h1>Projects could not be loaded.</h1>';
+  console.error(err);
+}
+
+// theme button + gallery arrows (run after the page is drawn)
+await import('/src/js/project.js');
+</script>
 </body>
 </html>

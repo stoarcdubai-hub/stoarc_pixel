@@ -10,10 +10,15 @@
     "services": ["Architectural Design", "Consultancy"],
     "body": [
       "H2O Group of Companies is a corporate office building in Dubai, UAE, within our commercial architecture work.",
+      "The project is a modern office development designed to represent a strong corporate presence, integrating functional planning, contemporary facade design and efficient workspace solutions.",
       "StoArc's scope on the project was architectural design and consultancy."
     ],
     "images": [
-      { "file": "h2o-group-corporate-office-building-dubai", "alt": "H2O Group of Companies corporate office building in Dubai, UAE" }
+      {
+        "file": "h2o-group-corporate-office-building-dubai",
+        "alt": "H2O Group of Companies corporate office building in Dubai, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2025/03/page_17_image_02.jpeg"
+      }
     ]
   },
   {
@@ -27,10 +32,15 @@
     "services": ["Interior Design Consultancy"],
     "body": [
       "SORA Cafe is a cafe and restaurant interior in Al Ain, UAE, within our hospitality interior design work.",
+      "The concept is a modern cafe interior designed around freshness, simplicity and brand identity, with contemporary finishes, unique design elements and an inviting atmosphere.",
       "StoArc provided interior design consultancy for the project."
     ],
     "images": [
-      { "file": "sora-cafe-interior-al-ain", "alt": "SORA Cafe interior in Al Ain, UAE" }
+      {
+        "file": "sora-cafe-interior-al-ain",
+        "alt": "SORA Cafe interior in Al Ain, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_24_image_02-1200x657.jpeg"
+      }
     ]
   },
   {
@@ -44,11 +54,16 @@
     "services": ["Architectural Design", "Urban Design"],
     "body": [
       "Casa Sud Train Station is an infrastructure project in China, combining architecture and urban design.",
+      "The landmark railway station proposal explores a future-oriented transportation hub integrating high-speed mobility, urban connectivity and public realm development. The design focuses on dynamic architectural forms, efficient passenger circulation, and integration between infrastructure, landscape and the surrounding urban environment.",
       "The client was Dongguan Guotie Poly Industrial Development Co., Ltd.",
       "StoArc's scope was architectural design and urban design."
     ],
     "images": [
-      { "file": "casa-sud-train-station-china", "alt": "Casa Sud Train Station architectural design in China" }
+      {
+        "file": "casa-sud-train-station-china",
+        "alt": "Casa Sud Train Station architectural design in China",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2025/03/page_16_image_03.jpeg"
+      }
     ]
   },
   {
@@ -62,11 +77,371 @@
     "services": ["Architectural Design", "Consultancy"],
     "body": [
       "T30 Residence Unit is a contemporary residential development in Ajman, UAE, designed to provide comfortable and efficient urban living solutions.",
-      "The project focuses on modern façade expression, functional planning, and an enhanced resident experience through integrated balconies, landscaped areas, and balanced architectural proportions.",
+      "The project focuses on modern façade expression, functional planning, and an enhanced resident experience through integrated balconies, landscaped areas, and balanced architectural proportions. The development is approximately 125,000 sq.ft.",
       "StoArc's scope was architectural design and consultancy."
     ],
     "images": [
-      { "file": "t30-residence-unit-ajman", "alt": "T30 Residence Unit residential development in Ajman, UAE" }
+      {
+        "file": "t30-residence-unit-ajman",
+        "alt": "T30 Residence Unit residential development in Ajman, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2025/03/page_14_image_01.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "medical-facility-architecture-fujairah-novas",
+    "name": "Novas",
+    "heading": "Medical Facility Architecture in Fujairah, UAE",
+    "seoTitle": "Novas Medical Facility Architecture in Fujairah | StoArc",
+    "description": "Architectural design and consultancy for Novas, a modern medical facility in Fujairah, UAE, for client Nexora Healthcare, by StoArc.",
+    "location": "Fujairah, UAE",
+    "type": "Medical Facility",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "Novas is a medical facility in Fujairah, UAE, within our healthcare architecture work.",
+      "The healthcare development focuses on creating a modern medical environment through efficient planning, contemporary architecture and a refined facade language, aiming to establish a professional and comfortable healthcare destination.",
+      "The client was Nexora Healthcare.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "novas-medical-facility-fujairah",
+        "alt": "Novas medical facility in Fujairah, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_22_image_04.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "healthcare-facility-architecture-fujairah-nexora",
+    "name": "Nexora Healthcare",
+    "heading": "Healthcare Facility Architecture in Fujairah, UAE",
+    "seoTitle": "Nexora Healthcare Facility Architecture in Fujairah | StoArc",
+    "description": "Architectural design and consultancy for Nexora Healthcare, a modern medical facility in Fujairah, UAE, by StoArc.",
+    "location": "Fujairah, UAE",
+    "type": "Medical Facility",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "Nexora Healthcare is a medical facility in Fujairah, UAE, within our healthcare architecture work.",
+      "The modern healthcare facility is designed around patient comfort, operational efficiency and a strong institutional identity, integrating contemporary façade elements, functional planning and a welcoming environment suitable for advanced healthcare services.",
+      "The client was Nexora Healthcare.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "nexora-healthcare-facility-fujairah",
+        "alt": "Nexora Healthcare medical facility in Fujairah, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_21_image_02.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "residential-development-architecture-dubai",
+    "name": "Aurea Vista",
+    "heading": "Residential Development Architecture in Dubai, UAE",
+    "seoTitle": "Aurea Vista Residential Architecture in Dubai | StoArc",
+    "description": "Architectural design and consultancy for Aurea Vista, a sophisticated residential development in Dubai, UAE, by StoArc.",
+    "location": "Dubai, UAE",
+    "type": "Residential Development",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "Aurea Vista is a residential development in Dubai, UAE, within our residential architecture work.",
+      "The project combines modern architectural language with premium lifestyle elements, integrating landscaped areas, contemporary façade treatments and carefully planned residential spaces to create a distinctive living experience.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "aurea-vista-residential-development-dubai",
+        "alt": "Aurea Vista residential development in Dubai, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_23_image_01-1-1024x704.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "automotive-showroom-facade-architecture",
+    "name": "Autonova Motors",
+    "heading": "Commercial Showroom Architecture and Parametric Facade Design",
+    "seoTitle": "Autonova Motors Showroom Architecture | StoArc",
+    "description": "Architectural design and consultancy for Autonova Motors, a commercial showroom with two parametric facade design options, by StoArc.",
+    "location": "",
+    "type": "Commercial Showroom",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "Autonova Motors is a commercial showroom envisioned as a contemporary automotive destination where architecture and brand identity come together through innovative facade exploration.",
+      "The project investigates two parametric facade options. The first uses a dynamic vertical fin system that forms a fluid, continuous architectural skin with movement, depth and a sculptural silhouette. The second is a more geometric and modular facade using repeating three-dimensional elements to generate texture, shading and visual rhythm.",
+      "Both options are integrated with expansive glazed showroom facades, keeping vehicles and interior activity visible as part of the building's expression. The design combines computational thinking, façade performance, natural light and contemporary materials.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "autonova-motors-showroom-facade",
+        "alt": "Autonova Motors commercial showroom with parametric facade design",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_14_image_13.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "cafe-interior-design-sharjah",
+    "name": "Neighbourhood Cafe",
+    "heading": "Cafe Interior Design in Sharjah, UAE",
+    "seoTitle": "Neighbourhood Cafe Interior Design in Sharjah | StoArc",
+    "description": "Interior design consultancy for Neighbourhood Cafe, a community-focused cafe interior in Sharjah, UAE, by StoArc.",
+    "location": "Sharjah, UAE",
+    "type": "Cafe / Restaurant Interior",
+    "services": ["Interior Design Consultancy"],
+    "body": [
+      "Neighbourhood Cafe is a cafe interior in Sharjah, UAE, within our hospitality design work.",
+      "The community-focused concept creates a warm and welcoming social environment, combining comfortable seating, natural textures, ambient lighting and contemporary detailing.",
+      "StoArc provided interior design consultancy for the project."
+    ],
+    "images": [
+      {
+        "file": "neighbourhood-cafe-interior-sharjah",
+        "alt": "Neighbourhood Cafe interior in Sharjah, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_14_image_06.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "private-residence-architecture-ajman",
+    "name": "GH Residence",
+    "heading": "Private Residence Architecture in Ajman, UAE",
+    "seoTitle": "GH Residence Architecture in Ajman, UAE | StoArc",
+    "description": "Architectural design and consultancy for GH Residence, a premium private residence in Ajman, UAE, by StoArc.",
+    "location": "Ajman, UAE",
+    "type": "Private Residence",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "GH Residence is a private residence in Ajman, UAE, within our residential architecture work.",
+      "The premium residential project takes a contemporary architectural approach, emphasizing privacy, natural light, elegant material selection and refined spatial planning to create a comfortable and timeless living environment.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "gh-residence-private-residence-ajman",
+        "alt": "GH Residence private residence in Ajman, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_28_image_02.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "villa-facade-renovation-fujairah",
+    "name": "Fujairah Villa",
+    "heading": "Villa Facade Renovation in Fujairah, UAE",
+    "seoTitle": "Fujairah Villa Facade Renovation | StoArc",
+    "description": "Facade design consultancy for Fujairah Villa, a residential facade renovation and architectural enhancement project in Fujairah, UAE.",
+    "location": "Fujairah, UAE",
+    "type": "Residential / Building Renovation",
+    "services": ["Facade Design Consultancy"],
+    "body": [
+      "Fujairah Villa is a facade renovation and architectural enhancement project in Fujairah, UAE.",
+      "The facade transformation focuses on improving the building's identity and contemporary appearance, introducing updated architectural elements and refined materials while responding to the surrounding urban context.",
+      "StoArc's scope was facade design consultancy."
+    ],
+    "images": [
+      {
+        "file": "fujairah-villa-facade-renovation",
+        "alt": "Fujairah Villa facade renovation in Fujairah, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_14_image_09.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "retail-interior-design-abu-dhabi",
+    "name": "Treasures of Arabia",
+    "heading": "Retail Interior Design in Abu Dhabi, UAE",
+    "seoTitle": "Treasures of Arabia Retail Interior Design in Abu Dhabi | StoArc",
+    "description": "Interior design and consultancy for Treasures of Arabia, a contemporary retail interior in Abu Dhabi, UAE, by StoArc.",
+    "location": "Abu Dhabi, UAE",
+    "type": "Retail Interior",
+    "services": ["Interior Design", "Consultancy"],
+    "body": [
+      "Treasures of Arabia is a retail interior in Abu Dhabi, UAE, within our interior design consultancy work.",
+      "The contemporary retail interior creates a distinctive and immersive shopping experience, combining arched architectural elements, decorative patterned screens, premium display fixtures and integrated feature lighting.",
+      "A refined palette of natural stone finishes, warm metallic accents, dark display elements and sculptural lighting highlights the products and circulation spaces. Custom display units and spatial zoning improve visibility, functionality and customer engagement.",
+      "StoArc's scope was interior design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "treasures-of-arabia-retail-interior-abu-dhabi",
+        "alt": "Treasures of Arabia retail interior in Abu Dhabi, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_30_image_03.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "corporate-office-interior-design-dubai",
+    "name": "Lulu Regional Office",
+    "heading": "Corporate Office Interior Design in Dubai, UAE",
+    "seoTitle": "Lulu Regional Office Interior Design in Dubai | StoArc",
+    "description": "Design and PMC services for the Lulu Regional Office, a modern corporate office interior in Dubai, UAE, by StoArc.",
+    "location": "Dubai, UAE",
+    "type": "Corporate Office Interior",
+    "services": ["Design", "PMC"],
+    "body": [
+      "Lulu Regional Office is a corporate office interior in Dubai, UAE, within our interior consultancy work.",
+      "The modern corporate workplace is designed to enhance collaboration, productivity and employee comfort through flexible workspaces, contemporary finishes and efficient planning strategies.",
+      "StoArc's scope was design and PMC."
+    ],
+    "images": [
+      {
+        "file": "lulu-regional-office-interior-dubai",
+        "alt": "Lulu Regional Office corporate interior in Dubai, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_31_image_08.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "fitness-facility-interior-design-al-warqa-dubai",
+    "name": "Fitox Gym",
+    "heading": "Fitness Facility Interior Design in Al Warqa, Dubai",
+    "seoTitle": "Fitox Gym Interior Design in Al Warqa, Dubai | StoArc",
+    "description": "Design and PMC services for Fitox Gym, a contemporary fitness facility interior in Al Warqa, Dubai, UAE, by StoArc.",
+    "location": "Al Warqa, Dubai, UAE",
+    "type": "Fitness Facility Interior",
+    "services": ["Design", "PMC"],
+    "body": [
+      "Fitox Gym is a fitness facility interior in Al Warqa, Dubai, UAE, within our interior consultancy work.",
+      "The contemporary fitness facility takes a bold and energetic interior approach, integrating functional workout zones, modern materials, dynamic lighting and strong brand identity.",
+      "StoArc's scope was design and PMC."
+    ],
+    "images": [
+      {
+        "file": "fitox-gym-interior-al-warqa-dubai",
+        "alt": "Fitox Gym fitness facility interior in Al Warqa, Dubai",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_32_image_01.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "office-interior-design-dubai",
+    "name": "Emirates Industries Panel",
+    "heading": "Office Interior Design in Dubai, UAE",
+    "seoTitle": "Emirates Industries Panel Office Interior Design in Dubai | StoArc",
+    "description": "Interior design and consultancy for Emirates Industries Panel, an office interior project in Dubai, UAE, by StoArc.",
+    "location": "Dubai, UAE",
+    "type": "Office Interior",
+    "services": ["Interior Design", "Consultancy"],
+    "body": [
+      "Emirates Industries Panel is an office interior in Dubai, UAE, within our interior design consultancy work.",
+      "StoArc's scope was interior design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "emirates-industries-panel-office-interior-dubai",
+        "alt": "Emirates Industries Panel office interior in Dubai, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_35_image_01.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "corporate-office-interior-design-dubai-design-district",
+    "name": "Merrachi",
+    "heading": "Corporate Office Interior Design in Dubai Design District",
+    "seoTitle": "Merrachi Office Interior Design in Dubai Design District | StoArc",
+    "description": "Interior design and consultancy for Merrachi, a corporate office interior in Dubai Design District, Dubai, by StoArc.",
+    "location": "Dubai Design District, Dubai",
+    "type": "Corporate Office Interior",
+    "services": ["Interior Design", "Consultancy"],
+    "body": [
+      "Merrachi is a corporate office interior in Dubai Design District, Dubai, within our interior design consultancy work.",
+      "The project is grounded in concept design, turning abstract ideas into tangible visions that blend creativity with purpose, with thoughtful exploration, innovation and sustainability laying the foundation for meaningful spaces.",
+      "StoArc's scope was interior design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "merrachi-corporate-office-interior-dubai-design-district",
+        "alt": "Merrachi corporate office interior in Dubai Design District",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_37_image_01.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "restaurant-interior-design-abu-dhabi",
+    "name": "Thai Restaurant",
+    "heading": "Thai Restaurant Interior Design in Abu Dhabi, UAE",
+    "seoTitle": "Thai Restaurant Interior Design in Abu Dhabi | StoArc",
+    "description": "Interior design and consultancy for a Thai restaurant, a vibrant hospitality interior in Abu Dhabi, UAE, by StoArc.",
+    "location": "Abu Dhabi, UAE",
+    "type": "Hospitality Interior",
+    "services": ["Interior Design", "Consultancy"],
+    "body": [
+      "Thai Restaurant is a hospitality interior in Abu Dhabi, UAE, within our interior design consultancy work.",
+      "The vibrant contemporary interior creates an immersive and memorable dining experience, combining bold colours, organic architectural forms, arched openings, lush planting and decorative feature lighting.",
+      "Custom seating, sculptural ceiling elements, patterned surfaces and layered textures, together with carefully planned dining zones and circulation, balance functionality, comfort and visual engagement.",
+      "StoArc's scope was interior design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "thai-restaurant-interior-abu-dhabi",
+        "alt": "Thai restaurant interior in Abu Dhabi, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_36_image_09.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "residential-interior-design-dubai-hills",
+    "name": "Dubai Hills Villa",
+    "heading": "Residential Interior Design in Dubai Hills, Dubai",
+    "seoTitle": "Dubai Hills Villa Interior Design | StoArc",
+    "description": "Interior design and consultancy for Dubai Hills Villa, a contemporary residential interior in Dubai Hills, Dubai, by StoArc.",
+    "location": "Dubai Hills, Dubai",
+    "type": "Residential Interior",
+    "services": ["Interior Design", "Consultancy"],
+    "body": [
+      "Dubai Hills Villa is a residential interior in Dubai Hills, Dubai, within our interior design consultancy work.",
+      "The contemporary interior uses warm natural materials, soft neutral tones and refined detailing to create a sophisticated and comfortable living environment. Open-plan spaces, custom joinery, integrated lighting and carefully selected furnishings balance functionality, comfort and understated luxury.",
+      "StoArc's scope was interior design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "dubai-hills-villa-residential-interior",
+        "alt": "Dubai Hills Villa residential interior in Dubai Hills, Dubai",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2026/09/page_29_image_03.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "banking-facility-architecture-ajman",
+    "name": "K & C Bank",
+    "heading": "Banking Facility Architecture in Ajman, UAE",
+    "seoTitle": "K & C Bank Architecture in Ajman, UAE | StoArc",
+    "description": "Architectural design and consultancy for K & C Bank, a modern banking facility in Ajman, UAE, by StoArc.",
+    "location": "Ajman, UAE",
+    "type": "Banking Facility",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "K & C Bank is a banking facility in Ajman, UAE, within our institutional architecture work.",
+      "The modern banking facility is designed to reflect trust, professionalism and corporate identity. Solid forms, transparent glazing and refined materials create a secure yet welcoming customer environment.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "kc-bank-facility-ajman",
+        "alt": "K & C Bank facility in Ajman, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2025/03/page_19_image_02-1024x623.jpeg"
+      }
+    ]
+  },
+  {
+    "slug": "chapel-architecture-al-ain",
+    "name": "Kanad Chapel",
+    "heading": "Chapel Architecture in Al Ain, UAE",
+    "seoTitle": "Kanad Chapel Architecture in Al Ain, UAE | StoArc",
+    "description": "Architectural design and consultancy for Kanad Chapel, a proposed spiritual facility within a healthcare setting in Al Ain, UAE, by StoArc.",
+    "location": "Al Ain, UAE",
+    "type": "Community / Spiritual Facility",
+    "services": ["Architectural Design", "Consultancy"],
+    "body": [
+      "Kanad Chapel is a proposed chapel on the terrace of Kanad chapel in Al Ain, UAE, within our religious architecture work.",
+      "The design creates a peaceful spiritual environment within a healthcare setting, focusing on serenity, natural light, simplicity of form and a strong connection with the surroundings.",
+      "StoArc's scope was architectural design and consultancy."
+    ],
+    "images": [
+      {
+        "file": "kanad-chapel-al-ain",
+        "alt": "Kanad Chapel spiritual facility in Al Ain, UAE",
+        "url": "https://www.stoarc.ae/wp-content/uploads/2025/03/page_20_image_02.jpeg"
+      }
     ]
   }
 ]
