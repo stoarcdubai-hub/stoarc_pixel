@@ -11,6 +11,45 @@
 <script src="/theme-init.js"></script>
 <link rel="stylesheet" href="/src/css/style.css">
 <link rel="stylesheet" href="/src/css/project.css">
+<style>
+/* ---- Projects page motion (scoped to .pp) ---- */
+.pp .cimg{display:block;overflow:hidden;aspect-ratio:4/3;margin-bottom:14px}
+.pp .cimg img{display:block;width:100%;height:100%;aspect-ratio:auto;margin:0;object-fit:cover}
+
+/* ---- full-width layout for the all-projects list ---- */
+.pp.pp-list{display:block}
+.pp.pp-list h1{font-size:clamp(48px,8vw,128px);margin:0 0 clamp(36px,5vw,72px)}
+.pp.pp-list .cards{gap:clamp(28px,3.2vw,48px) clamp(20px,2.4vw,36px)}
+.pp.pp-list .back{margin-top:72px}
+
+/* title: each line slides up out of a mask */
+.pp .pj-line{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+
+@media (prefers-reduced-motion: no-preference){
+  .pp .pj-line>span{display:block;transform:translateY(108%);animation:pjUp 1.1s cubic-bezier(.16,1,.3,1) .15s forwards}
+  @keyframes pjUp{to{transform:none}}
+
+  /* everything fades and rises as it scrolls into view; --d staggers neighbours */
+  .pp .rv{opacity:0;transform:translateY(38px);
+    transition:opacity .9s ease var(--d,0ms),transform 1.1s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
+  .pp .rv.in{opacity:1;transform:none}
+
+  /* card pictures are unveiled with a wipe while they settle from a slight zoom */
+  .pp .cards .cimg img{clip-path:inset(0 0 100% 0);transform:scale(1.2);
+    transition:clip-path 1.2s cubic-bezier(.77,0,.18,1) var(--d,0ms),transform 1.6s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
+  .pp .cards .rv.in .cimg img{clip-path:inset(0);transform:scale(1)}
+
+  /* gallery pictures on a project page */
+  .pp .gallery figure{overflow:hidden}
+  .pp .gallery figure img{transform:scale(1.08);transition:transform 1.8s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
+  .pp .gallery figure.in img{transform:scale(1)}
+
+  /* hover: picture zooms, the other cards step back */
+  .pp .cards .rv.in a:hover .cimg img{transform:scale(1.07);transition-duration:.9s}
+  .pp .cards:hover .rv.in:not(:hover){opacity:.38;transition-duration:.5s}
+  .pp .cards li{transition-property:opacity,transform}
+}
+</style>
 </head>
 <body>
 <header>
@@ -36,7 +75,7 @@ const main = document.getElementById('top');
 
 const card = p => `
   <li><a href="/projects/?p=${esc(p.slug)}">
-    <img src="${esc(p.images[0].url)}" alt="${esc(p.images[0].alt)}" loading="lazy" decoding="async">
+    <span class="cimg"><img src="${esc(p.images[0].url)}" alt="${esc(p.images[0].alt)}" loading="lazy" decoding="async"></span>
     <span class="cname">${esc(p.name)}</span>
     <span class="cmeta">${esc([p.location, p.type].filter(Boolean).join(' · '))}</span>
   </a></li>`;
@@ -52,6 +91,7 @@ try {
 
   if (!slug) {
     // ---------- list ----------
+    main.classList.add('pp-list');
     main.innerHTML = `
       <p class="crumbs"><a href="/">Home</a> / Projects</p>
       <h1>Projects.</h1>
@@ -81,6 +121,28 @@ try {
 } catch (err) {
   main.innerHTML = '<h1>Projects could not be loaded.</h1>';
   console.error(err);
+}
+
+// ---------- motion ----------
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const h1 = main.querySelector('h1');
+if (h1) h1.innerHTML = `<span class="pj-line"><span>${h1.innerHTML}</span></span>`;
+if (!reduce) {
+  const targets = main.querySelectorAll('.crumbs, .facts > div, .body p, .gallery figure, .more h2, .cards li, .back');
+  const seen = new Map();
+  targets.forEach(el => {
+    const n = seen.get(el.parentElement) ?? 0;
+    seen.set(el.parentElement, n + 1);
+    el.classList.add('rv');
+    el.style.setProperty('--d', (el.matches('.cards li') ? (n % 3) * 90 : n * 80) + 'ms');
+  });
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+    setTimeout(() => e.target.style.setProperty('--d', '0ms'), 1900);   // no delay on hover afterwards
+  }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  targets.forEach(el => io.observe(el));
 }
 
 // theme button + gallery arrows (run after the page is drawn)
