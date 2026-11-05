@@ -32,5 +32,135 @@
       1200,
       1600
     ]
+  },
+  "automotive-showroom-facade-architecture/autonova-motors-showroom-facade": {
+    "width": 800,
+    "height": 440,
+    "sizes": [
+      800
+    ]
+  },
+  "banking-facility-architecture-ajman/kc-bank-facility-ajman": {
+    "width": 1600,
+    "height": 973,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "cafe-interior-design-sharjah/neighbourhood-cafe-interior-sharjah": {
+    "width": 800,
+    "height": 456,
+    "sizes": [
+      800
+    ]
+  },
+  "chapel-architecture-al-ain/kanad-chapel-al-ain": {
+    "width": 1600,
+    "height": 900,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "corporate-office-interior-design-dubai/lulu-regional-office-interior-dubai": {
+    "width": 1200,
+    "height": 675,
+    "sizes": [
+      800,
+      1200
+    ]
+  },
+  "corporate-office-interior-design-dubai-design-district/merrachi-corporate-office-interior-dubai-design-district": {
+    "width": 1600,
+    "height": 940,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "fitness-facility-interior-design-al-warqa-dubai/fitox-gym-interior-al-warqa-dubai": {
+    "width": 1600,
+    "height": 713,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "healthcare-facility-architecture-fujairah-nexora/nexora-healthcare-facility-fujairah": {
+    "width": 1600,
+    "height": 789,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "medical-facility-architecture-fujairah-novas/novas-medical-facility-fujairah": {
+    "width": 800,
+    "height": 1239,
+    "sizes": [
+      800
+    ]
+  },
+  "office-interior-design-dubai/emirates-industries-panel-office-interior-dubai": {
+    "width": 1200,
+    "height": 915,
+    "sizes": [
+      800,
+      1200
+    ]
+  },
+  "private-residence-architecture-ajman/gh-residence-private-residence-ajman": {
+    "width": 1600,
+    "height": 900,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "residential-development-architecture-dubai/aurea-vista-residential-development-dubai": {
+    "width": 1600,
+    "height": 1100,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "residential-interior-design-dubai-hills/dubai-hills-villa-residential-interior": {
+    "width": 800,
+    "height": 800,
+    "sizes": [
+      800
+    ]
+  },
+  "restaurant-interior-design-abu-dhabi/thai-restaurant-interior-abu-dhabi": {
+    "width": 800,
+    "height": 640,
+    "sizes": [
+      800
+    ]
+  },
+  "retail-interior-design-abu-dhabi/treasures-of-arabia-retail-interior-abu-dhabi": {
+    "width": 1600,
+    "height": 640,
+    "sizes": [
+      800,
+      1200,
+      1600
+    ]
+  },
+  "villa-facade-renovation-fujairah/fujairah-villa-facade-renovation": {
+    "width": 800,
+    "height": 468,
+    "sizes": [
+      800
+    ]
   }
 }

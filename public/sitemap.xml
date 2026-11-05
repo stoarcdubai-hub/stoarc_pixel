@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>http://localhost:5173/</loc></url>
-  <url><loc>http://localhost:5173/projects/</loc></url>
-  <url><loc>http://localhost:5173/projects/corporate-office-building-architecture-dubai/</loc></url>
-  <url><loc>http://localhost:5173/projects/cafe-interior-design-al-ain/</loc></url>
-  <url><loc>http://localhost:5173/projects/train-station-architecture-china/</loc></url>
-  <url><loc>http://localhost:5173/projects/residential-development-architecture-ajman/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/corporate-office-building-architecture-dubai/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/cafe-interior-design-al-ain/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/train-station-architecture-china/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/residential-development-architecture-ajman/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/medical-facility-architecture-fujairah-novas/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/healthcare-facility-architecture-fujairah-nexora/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/residential-development-architecture-dubai/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/automotive-showroom-facade-architecture/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/cafe-interior-design-sharjah/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/private-residence-architecture-ajman/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/villa-facade-renovation-fujairah/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/retail-interior-design-abu-dhabi/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/corporate-office-interior-design-dubai/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/fitness-facility-interior-design-al-warqa-dubai/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/office-interior-design-dubai/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/corporate-office-interior-design-dubai-design-district/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/restaurant-interior-design-abu-dhabi/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/residential-interior-design-dubai-hills/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/banking-facility-architecture-ajman/</loc></url>
+  <url><loc>https://stoarc-pixel.vercel.app/projects/chapel-architecture-al-ain/</loc></url>
 </urlset>

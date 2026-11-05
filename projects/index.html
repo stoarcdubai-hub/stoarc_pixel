@@ -5,51 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects | StoArc</title>
 <meta name="description" content="Selected projects by StoArc Architectural &amp; Engineering Consultancy.">
+<link rel="canonical" href="https://stoarc-pixel.vercel.app/projects/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StoArc">
+<meta property="og:title" content="Projects | StoArc">
+<meta property="og:description" content="Selected projects by StoArc Architectural &amp; Engineering Consultancy.">
+<meta property="og:url" content="https://stoarc-pixel.vercel.app/projects/">
+<meta property="og:image" content="https://stoarc-pixel.vercel.app/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1200.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="/theme-init.js"></script>
 <link rel="stylesheet" href="/src/css/style.css">
 <link rel="stylesheet" href="/src/css/project.css">
-<style>
-/* ---- Projects page motion (scoped to .pp) ---- */
-.pp .cimg{display:block;overflow:hidden;aspect-ratio:4/3;margin-bottom:14px}
-.pp .cimg img{display:block;width:100%;height:100%;aspect-ratio:auto;margin:0;object-fit:cover}
-
-/* ---- full-width layout for the all-projects list ---- */
-.pp.pp-list{display:block}
-.pp.pp-list h1{font-size:clamp(48px,8vw,128px);margin:0 0 clamp(36px,5vw,72px)}
-.pp.pp-list .cards{gap:clamp(28px,3.2vw,48px) clamp(20px,2.4vw,36px)}
-.pp.pp-list .back{margin-top:72px}
-
-/* title: each line slides up out of a mask */
-.pp .pj-line{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
-
-@media (prefers-reduced-motion: no-preference){
-  .pp .pj-line>span{display:block;transform:translateY(108%);animation:pjUp 1.1s cubic-bezier(.16,1,.3,1) .15s forwards}
-  @keyframes pjUp{to{transform:none}}
-
-  /* everything fades and rises as it scrolls into view; --d staggers neighbours */
-  .pp .rv{opacity:0;transform:translateY(38px);
-    transition:opacity .9s ease var(--d,0ms),transform 1.1s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
-  .pp .rv.in{opacity:1;transform:none}
-
-  /* card pictures are unveiled with a wipe while they settle from a slight zoom */
-  .pp .cards .cimg img{clip-path:inset(0 0 100% 0);transform:scale(1.2);
-    transition:clip-path 1.2s cubic-bezier(.77,0,.18,1) var(--d,0ms),transform 1.6s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
-  .pp .cards .rv.in .cimg img{clip-path:inset(0);transform:scale(1)}
-
-  /* gallery pictures on a project page */
-  .pp .gallery figure{overflow:hidden}
-  .pp .gallery figure img{transform:scale(1.08);transition:transform 1.8s cubic-bezier(.16,1,.3,1) var(--d,0ms)}
-  .pp .gallery figure.in img{transform:scale(1)}
-
-  /* hover: picture zooms, the other cards step back */
-  .pp .cards .rv.in a:hover .cimg img{transform:scale(1.07);transition-duration:.9s}
-  .pp .cards:hover .rv.in:not(:hover){opacity:.38;transition-duration:.5s}
-  .pp .cards li{transition-property:opacity,transform}
-}
-</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Projects | StoArc","description":"Selected projects by StoArc Architectural & Engineering Consultancy.","url":"https://stoarc-pixel.vercel.app/projects/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://stoarc-pixel.vercel.app/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://stoarc-pixel.vercel.app/projects/"}]}]}</script>
 </head>
 <body>
 <header>
@@ -60,93 +30,113 @@
     <a class="pill" href="/work.html#contact">START YOUR PROJECT ↳</a>
   </div>
 </header>
-
-<main class="pp" id="top"></main>
-
+<main class="pp" id="top">
+  <p class="crumbs"><a href="/">Home</a> / Projects</p>
+  <h1>Projects.</h1>
+  <ul class="cards">
+    <li><a href="/projects/corporate-office-building-architecture-dubai/">
+      <img src="/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1600.webp" srcset="/images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-800.webp 800w, /images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1200.webp 1200w, /images/projects/corporate-office-building-architecture-dubai/h2o-group-corporate-office-building-dubai-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="973" alt="H2O Group of Companies corporate office building in Dubai, UAE" loading="lazy" decoding="async">
+      <span class="cname">H2O Group of Companies</span>
+      <span class="cmeta">Dubai, UAE · Corporate Office Building</span>
+    </a></li>
+    <li><a href="/projects/cafe-interior-design-al-ain/">
+      <img src="/images/projects/cafe-interior-design-al-ain/sora-cafe-interior-al-ain-800.webp" srcset="/images/projects/cafe-interior-design-al-ain/sora-cafe-interior-al-ain-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="1000" alt="SORA Cafe interior in Al Ain, UAE" loading="lazy" decoding="async">
+      <span class="cname">SORA Cafe</span>
+      <span class="cmeta">Al Ain, UAE · Cafe / Restaurant Interior</span>
+    </a></li>
+    <li><a href="/projects/train-station-architecture-china/">
+      <img src="/images/projects/train-station-architecture-china/casa-sud-train-station-china-1600.webp" srcset="/images/projects/train-station-architecture-china/casa-sud-train-station-china-800.webp 800w, /images/projects/train-station-architecture-china/casa-sud-train-station-china-1200.webp 1200w, /images/projects/train-station-architecture-china/casa-sud-train-station-china-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="Casa Sud Train Station architectural design in China" loading="lazy" decoding="async">
+      <span class="cname">Casa Sud Train Station</span>
+      <span class="cmeta">China · Infrastructure Architecture / Urban Design</span>
+    </a></li>
+    <li><a href="/projects/residential-development-architecture-ajman/">
+      <img src="/images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1600.webp" srcset="/images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-800.webp 800w, /images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1200.webp 1200w, /images/projects/residential-development-architecture-ajman/t30-residence-unit-ajman-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="T30 Residence Unit residential development in Ajman, UAE" loading="lazy" decoding="async">
+      <span class="cname">T30 Residence Unit</span>
+      <span class="cmeta">Ajman, UAE · Residential Development</span>
+    </a></li>
+    <li><a href="/projects/medical-facility-architecture-fujairah-novas/">
+      <img src="/images/projects/medical-facility-architecture-fujairah-novas/novas-medical-facility-fujairah-800.webp" srcset="/images/projects/medical-facility-architecture-fujairah-novas/novas-medical-facility-fujairah-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="1239" alt="Novas medical facility in Fujairah, UAE" loading="lazy" decoding="async">
+      <span class="cname">Novas</span>
+      <span class="cmeta">Fujairah, UAE · Medical Facility</span>
+    </a></li>
+    <li><a href="/projects/healthcare-facility-architecture-fujairah-nexora/">
+      <img src="/images/projects/healthcare-facility-architecture-fujairah-nexora/nexora-healthcare-facility-fujairah-1600.webp" srcset="/images/projects/healthcare-facility-architecture-fujairah-nexora/nexora-healthcare-facility-fujairah-800.webp 800w, /images/projects/healthcare-facility-architecture-fujairah-nexora/nexora-healthcare-facility-fujairah-1200.webp 1200w, /images/projects/healthcare-facility-architecture-fujairah-nexora/nexora-healthcare-facility-fujairah-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="789" alt="Nexora Healthcare medical facility in Fujairah, UAE" loading="lazy" decoding="async">
+      <span class="cname">Nexora Healthcare</span>
+      <span class="cmeta">Fujairah, UAE · Medical Facility</span>
+    </a></li>
+    <li><a href="/projects/residential-development-architecture-dubai/">
+      <img src="/images/projects/residential-development-architecture-dubai/aurea-vista-residential-development-dubai-1600.webp" srcset="/images/projects/residential-development-architecture-dubai/aurea-vista-residential-development-dubai-800.webp 800w, /images/projects/residential-development-architecture-dubai/aurea-vista-residential-development-dubai-1200.webp 1200w, /images/projects/residential-development-architecture-dubai/aurea-vista-residential-development-dubai-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="1100" alt="Aurea Vista residential development in Dubai, UAE" loading="lazy" decoding="async">
+      <span class="cname">Aurea Vista</span>
+      <span class="cmeta">Dubai, UAE · Residential Development</span>
+    </a></li>
+    <li><a href="/projects/automotive-showroom-facade-architecture/">
+      <img src="/images/projects/automotive-showroom-facade-architecture/autonova-motors-showroom-facade-800.webp" srcset="/images/projects/automotive-showroom-facade-architecture/autonova-motors-showroom-facade-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="440" alt="Autonova Motors commercial showroom with parametric facade design" loading="lazy" decoding="async">
+      <span class="cname">Autonova Motors</span>
+      <span class="cmeta">Commercial Showroom</span>
+    </a></li>
+    <li><a href="/projects/cafe-interior-design-sharjah/">
+      <img src="/images/projects/cafe-interior-design-sharjah/neighbourhood-cafe-interior-sharjah-800.webp" srcset="/images/projects/cafe-interior-design-sharjah/neighbourhood-cafe-interior-sharjah-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="456" alt="Neighbourhood Cafe interior in Sharjah, UAE" loading="lazy" decoding="async">
+      <span class="cname">Neighbourhood Cafe</span>
+      <span class="cmeta">Sharjah, UAE · Cafe / Restaurant Interior</span>
+    </a></li>
+    <li><a href="/projects/private-residence-architecture-ajman/">
+      <img src="/images/projects/private-residence-architecture-ajman/gh-residence-private-residence-ajman-1600.webp" srcset="/images/projects/private-residence-architecture-ajman/gh-residence-private-residence-ajman-800.webp 800w, /images/projects/private-residence-architecture-ajman/gh-residence-private-residence-ajman-1200.webp 1200w, /images/projects/private-residence-architecture-ajman/gh-residence-private-residence-ajman-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="GH Residence private residence in Ajman, UAE" loading="lazy" decoding="async">
+      <span class="cname">GH Residence</span>
+      <span class="cmeta">Ajman, UAE · Private Residence</span>
+    </a></li>
+    <li><a href="/projects/villa-facade-renovation-fujairah/">
+      <img src="/images/projects/villa-facade-renovation-fujairah/fujairah-villa-facade-renovation-800.webp" srcset="/images/projects/villa-facade-renovation-fujairah/fujairah-villa-facade-renovation-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="468" alt="Fujairah Villa facade renovation in Fujairah, UAE" loading="lazy" decoding="async">
+      <span class="cname">Fujairah Villa</span>
+      <span class="cmeta">Fujairah, UAE · Residential / Building Renovation</span>
+    </a></li>
+    <li><a href="/projects/retail-interior-design-abu-dhabi/">
+      <img src="/images/projects/retail-interior-design-abu-dhabi/treasures-of-arabia-retail-interior-abu-dhabi-1600.webp" srcset="/images/projects/retail-interior-design-abu-dhabi/treasures-of-arabia-retail-interior-abu-dhabi-800.webp 800w, /images/projects/retail-interior-design-abu-dhabi/treasures-of-arabia-retail-interior-abu-dhabi-1200.webp 1200w, /images/projects/retail-interior-design-abu-dhabi/treasures-of-arabia-retail-interior-abu-dhabi-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="640" alt="Treasures of Arabia retail interior in Abu Dhabi, UAE" loading="lazy" decoding="async">
+      <span class="cname">Treasures of Arabia</span>
+      <span class="cmeta">Abu Dhabi, UAE · Retail Interior</span>
+    </a></li>
+    <li><a href="/projects/corporate-office-interior-design-dubai/">
+      <img src="/images/projects/corporate-office-interior-design-dubai/lulu-regional-office-interior-dubai-1200.webp" srcset="/images/projects/corporate-office-interior-design-dubai/lulu-regional-office-interior-dubai-800.webp 800w, /images/projects/corporate-office-interior-design-dubai/lulu-regional-office-interior-dubai-1200.webp 1200w" sizes="(min-width:900px) 30vw, 90vw" width="1200" height="675" alt="Lulu Regional Office corporate interior in Dubai, UAE" loading="lazy" decoding="async">
+      <span class="cname">Lulu Regional Office</span>
+      <span class="cmeta">Dubai, UAE · Corporate Office Interior</span>
+    </a></li>
+    <li><a href="/projects/fitness-facility-interior-design-al-warqa-dubai/">
+      <img src="/images/projects/fitness-facility-interior-design-al-warqa-dubai/fitox-gym-interior-al-warqa-dubai-1600.webp" srcset="/images/projects/fitness-facility-interior-design-al-warqa-dubai/fitox-gym-interior-al-warqa-dubai-800.webp 800w, /images/projects/fitness-facility-interior-design-al-warqa-dubai/fitox-gym-interior-al-warqa-dubai-1200.webp 1200w, /images/projects/fitness-facility-interior-design-al-warqa-dubai/fitox-gym-interior-al-warqa-dubai-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="713" alt="Fitox Gym fitness facility interior in Al Warqa, Dubai" loading="lazy" decoding="async">
+      <span class="cname">Fitox Gym</span>
+      <span class="cmeta">Al Warqa, Dubai, UAE · Fitness Facility Interior</span>
+    </a></li>
+    <li><a href="/projects/office-interior-design-dubai/">
+      <img src="/images/projects/office-interior-design-dubai/emirates-industries-panel-office-interior-dubai-1200.webp" srcset="/images/projects/office-interior-design-dubai/emirates-industries-panel-office-interior-dubai-800.webp 800w, /images/projects/office-interior-design-dubai/emirates-industries-panel-office-interior-dubai-1200.webp 1200w" sizes="(min-width:900px) 30vw, 90vw" width="1200" height="915" alt="Emirates Industries Panel office interior in Dubai, UAE" loading="lazy" decoding="async">
+      <span class="cname">Emirates Industries Panel</span>
+      <span class="cmeta">Dubai, UAE · Office Interior</span>
+    </a></li>
+    <li><a href="/projects/corporate-office-interior-design-dubai-design-district/">
+      <img src="/images/projects/corporate-office-interior-design-dubai-design-district/merrachi-corporate-office-interior-dubai-design-district-1600.webp" srcset="/images/projects/corporate-office-interior-design-dubai-design-district/merrachi-corporate-office-interior-dubai-design-district-800.webp 800w, /images/projects/corporate-office-interior-design-dubai-design-district/merrachi-corporate-office-interior-dubai-design-district-1200.webp 1200w, /images/projects/corporate-office-interior-design-dubai-design-district/merrachi-corporate-office-interior-dubai-design-district-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="940" alt="Merrachi corporate office interior in Dubai Design District" loading="lazy" decoding="async">
+      <span class="cname">Merrachi</span>
+      <span class="cmeta">Dubai Design District, Dubai · Corporate Office Interior</span>
+    </a></li>
+    <li><a href="/projects/restaurant-interior-design-abu-dhabi/">
+      <img src="/images/projects/restaurant-interior-design-abu-dhabi/thai-restaurant-interior-abu-dhabi-800.webp" srcset="/images/projects/restaurant-interior-design-abu-dhabi/thai-restaurant-interior-abu-dhabi-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="640" alt="Thai restaurant interior in Abu Dhabi, UAE" loading="lazy" decoding="async">
+      <span class="cname">Thai Restaurant</span>
+      <span class="cmeta">Abu Dhabi, UAE · Hospitality Interior</span>
+    </a></li>
+    <li><a href="/projects/residential-interior-design-dubai-hills/">
+      <img src="/images/projects/residential-interior-design-dubai-hills/dubai-hills-villa-residential-interior-800.webp" srcset="/images/projects/residential-interior-design-dubai-hills/dubai-hills-villa-residential-interior-800.webp 800w" sizes="(min-width:900px) 30vw, 90vw" width="800" height="800" alt="Dubai Hills Villa residential interior in Dubai Hills, Dubai" loading="lazy" decoding="async">
+      <span class="cname">Dubai Hills Villa</span>
+      <span class="cmeta">Dubai Hills, Dubai · Residential Interior</span>
+    </a></li>
+    <li><a href="/projects/banking-facility-architecture-ajman/">
+      <img src="/images/projects/banking-facility-architecture-ajman/kc-bank-facility-ajman-1600.webp" srcset="/images/projects/banking-facility-architecture-ajman/kc-bank-facility-ajman-800.webp 800w, /images/projects/banking-facility-architecture-ajman/kc-bank-facility-ajman-1200.webp 1200w, /images/projects/banking-facility-architecture-ajman/kc-bank-facility-ajman-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="973" alt="K &amp; C Bank facility in Ajman, UAE" loading="lazy" decoding="async">
+      <span class="cname">K &amp; C Bank</span>
+      <span class="cmeta">Ajman, UAE · Banking Facility</span>
+    </a></li>
+    <li><a href="/projects/chapel-architecture-al-ain/">
+      <img src="/images/projects/chapel-architecture-al-ain/kanad-chapel-al-ain-1600.webp" srcset="/images/projects/chapel-architecture-al-ain/kanad-chapel-al-ain-800.webp 800w, /images/projects/chapel-architecture-al-ain/kanad-chapel-al-ain-1200.webp 1200w, /images/projects/chapel-architecture-al-ain/kanad-chapel-al-ain-1600.webp 1600w" sizes="(min-width:900px) 30vw, 90vw" width="1600" height="900" alt="Kanad Chapel spiritual facility in Al Ain, UAE" loading="lazy" decoding="async">
+      <span class="cname">Kanad Chapel</span>
+      <span class="cmeta">Al Ain, UAE · Community / Spiritual Facility</span>
+    </a></li>
+  </ul>
+</main>
 <footer><span>© STOARC</span><a href="#top">⇑ SCROLL TO TOP</a></footer>
-
-<script type="module">
-import all from '/src/data/projects.json';
-/* One page for everything, driven by src/data/projects.json
-   /projects/            -> all projects
-   /projects/?p=<slug>   -> one project                                  */
-const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const main = document.getElementById('top');
-
-const card = p => `
-  <li><a href="/projects/?p=${esc(p.slug)}">
-    <span class="cimg"><img src="${esc(p.images[0].url)}" alt="${esc(p.images[0].alt)}" loading="lazy" decoding="async"></span>
-    <span class="cname">${esc(p.name)}</span>
-    <span class="cmeta">${esc([p.location, p.type].filter(Boolean).join(' · '))}</span>
-  </a></li>`;
-
-const setMeta = (title, desc) => {
-  document.title = title;
-  document.querySelector('meta[name="description"]').content = desc;
-};
-
-try {
-  const slug = new URLSearchParams(location.search).get('p');
-  const i = all.findIndex(p => p.slug === slug);
-
-  if (!slug) {
-    // ---------- list ----------
-    main.classList.add('pp-list');
-    main.innerHTML = `
-      <p class="crumbs"><a href="/">Home</a> / Projects</p>
-      <h1>Projects.</h1>
-      <ul class="cards">${all.map(card).join('')}</ul>`;
-  } else if (i < 0) {
-    main.innerHTML = `
-      <p class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a></p>
-      <h1>Project not found.</h1>
-      <p class="back"><a href="/projects/">← All projects</a></p>`;
-  } else {
-    // ---------- one project ----------
-    const p = all[i];
-    setMeta(p.seoTitle, p.description);
-    const facts = [['Location', p.location], ['Type', p.type], ['Services', p.services.join(', ')]]
-      .filter(f => f[1])
-      .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
-    const more = [1, 2, 3].map(d => all[(i + d) % all.length]).map(card).join('');
-    main.innerHTML = `
-      <p class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a> / ${esc(p.name)}</p>
-      <h1>${esc(p.heading)}</h1>
-      <dl class="facts">${facts}</dl>
-      <div class="body">${p.body.map(t => `<p>${esc(t)}</p>`).join('')}</div>
-      <div class="gallery">${p.images.map(im => `<figure><img src="${esc(im.url)}" alt="${esc(im.alt)}"></figure>`).join('')}</div>
-      <section class="more"><h2>More projects</h2><ul class="cards">${more}</ul></section>
-      <p class="back"><a href="/projects/">← All projects</a></p>`;
-  }
-} catch (err) {
-  main.innerHTML = '<h1>Projects could not be loaded.</h1>';
-  console.error(err);
-}
-
-// ---------- motion ----------
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const h1 = main.querySelector('h1');
-if (h1) h1.innerHTML = `<span class="pj-line"><span>${h1.innerHTML}</span></span>`;
-if (!reduce) {
-  const targets = main.querySelectorAll('.crumbs, .facts > div, .body p, .gallery figure, .more h2, .cards li, .back');
-  const seen = new Map();
-  targets.forEach(el => {
-    const n = seen.get(el.parentElement) ?? 0;
-    seen.set(el.parentElement, n + 1);
-    el.classList.add('rv');
-    el.style.setProperty('--d', (el.matches('.cards li') ? (n % 3) * 90 : n * 80) + 'ms');
-  });
-  const io = new IntersectionObserver(entries => entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add('in');
-    io.unobserve(e.target);
-    setTimeout(() => e.target.style.setProperty('--d', '0ms'), 1900);   // no delay on hover afterwards
-  }), { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  targets.forEach(el => io.observe(el));
-}
-
-// theme button + gallery arrows (run after the page is drawn)
-await import('/src/js/project.js');
-</script>
+<script type="module" src="/src/js/project.js"></script>
 </body>
 </html>
