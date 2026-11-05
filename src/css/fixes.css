@@ -1,12 +1,7 @@
 /* ===== BASICS ===== */
-/* Skip link (keyboard / screen reader) */
 .skip{position:fixed;left:12px;top:-60px;z-index:10000;padding:10px 14px;background:var(--ink);color:var(--deep);font:600 13px/1 "Nunito Sans",sans-serif;text-decoration:none}
 .skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
-
-/* h1 keeps the look of the old <div class="big"> */
 :where(h1.big){margin:0;font-size:inherit;font-weight:inherit}
-
-/* Visible keyboard focus */
 :focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
 /* ===== HEADER: follows the black / white theme ===== */
@@ -16,7 +11,6 @@ header{
   background:color-mix(in srgb,var(--deep) 88%,transparent);
   transition:background .5s,color .5s;
 }
-/* notch / status bar safe areas (the page uses viewport-fit=cover) */
 header{
   padding-top:calc(18px + env(safe-area-inset-top,0px));
   padding-left:max(var(--w-pad,40px),env(safe-area-inset-left,0px));
@@ -43,131 +37,189 @@ header{
   .pill:hover,.btn:hover{background:none;color:inherit}
 }
 
-/* ===== HERO SCENE 2: service capsules (3 left, 3 right, 1 top) ===== */
-.svc{position:absolute;inset:0;margin:0;padding:0;list-style:none;pointer-events:none;z-index:3;counter-reset:svc}
-.svc li{
-  position:absolute;opacity:0;white-space:nowrap;
-  counter-increment:svc;
-  display:flex;align-items:center;
-  padding:7px 16px 7px 12px;
-  border:1px solid var(--w-fg);border-radius:999px;
-  background:var(--w-fg);color:var(--w-bg);
-  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  animation:svcfloat 5s ease-in-out infinite;
-}
-.svc li:nth-child(2n){animation-delay:-1.7s}
-.svc li:nth-child(3n){animation-delay:-3.1s}
-@keyframes svcfloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
-.svc li::before{
-  content:counter(svc,decimal-leading-zero);
-  margin-right:10px;padding-right:10px;
-  border-right:1px solid color-mix(in srgb,currentColor 35%,transparent);
-  font-size:9px;font-weight:400;letter-spacing:.1em;opacity:.65;font-variant-numeric:tabular-nums;
-}
-.svc li::after{content:"";position:absolute;pointer-events:none}
-.svc .l::after,.svc .r::after{top:50%;height:7px;margin-top:-3px;width:clamp(28px,5vw,80px)}
-.svc .l::after{
-  left:100%;
-  background:
-    linear-gradient(var(--w-fg),var(--w-fg)) 0 50%/100% 1px no-repeat,
-    radial-gradient(circle,var(--w-fg) 2.5px,transparent 3px) 100% 50%/7px 7px no-repeat;
-}
-.svc .r::after{
-  right:100%;
-  background:
-    linear-gradient(var(--w-fg),var(--w-fg)) 0 50%/100% 1px no-repeat,
-    radial-gradient(circle,var(--w-fg) 2.5px,transparent 3px) 0 50%/7px 7px no-repeat;
-}
-.svc .c::after{
-  top:100%;left:50%;width:7px;height:clamp(24px,5vh,44px);margin-left:-3px;
-  background:
-    linear-gradient(var(--w-fg),var(--w-fg)) 50% 0/1px 100% no-repeat,
-    radial-gradient(circle,var(--w-fg) 2.5px,transparent 3px) 50% 100%/7px 7px no-repeat;
-}
-.svc .l{left:var(--w-pad)}
-.svc .r{right:var(--w-pad)}
-.svc .t1{top:34vh}
-.svc .t2{top:44vh}
-.svc .t3{top:54vh}
-.svc .c{top:16vh;left:0;right:0;margin-inline:auto;width:max-content}
-@media (max-width:760px){
-  .svc li{font-size:10px;padding:5px 11px;letter-spacing:.1em}
-  .svc li::before,.svc li::after{display:none}
-  .svc .t1{top:36vh}
-  .svc .t2{top:44vh}
-  .svc .t3{top:52vh}
-  .svc .c{top:20vh}
+/* ===== SERVICES BOX ===== */
+.sx-box{
+  /* >>> ADJUST HERE <<< */
+  --card-radius:7px;       /* roundness, same on every screen size */
+  --card-gap:8px;          /* space between cards */
+  --glass-a:14%;           /* card opacity at rest (6% = clear, 25% = milky) */
+  --glass-a-on:24%;        /* card opacity on hover / tap */
+
+  position:absolute;z-index:4;
+  right:var(--w-pad);
+  top:calc(92px + env(safe-area-inset-top,0px));bottom:24px;
+  margin-block:auto;height:max-content;
+  width:min(38vw,500px);
+  border:0;
+  background:none;
+  visibility:hidden;opacity:0;                                       /* GSAP shows it in scene 2 */
 }
 
-/* ===== SERVICES: drawing index ===== */
-.block.svc-idx{
-  display:grid;
-  grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr);
-  column-gap:clamp(32px,6vw,96px);
-  align-items:start;
-}
-.si-head{position:sticky;top:calc(104px + env(safe-area-inset-top,0px))}
-.block.svc-idx h2{font-size:clamp(40px,5vw,80px);line-height:.98;margin:0 0 24px}
-.si-intro,.sd-desc{font-size:14px;line-height:1.65;color:var(--w-dim);margin:0;max-width:46ch}
-.si-count{margin:32px 0 0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-dim)}
+/* heading card, centered */
+.sx-top{margin-bottom:var(--card-gap);padding:14px 18px;text-align:center}
+.sx-top .tag{display:none}
+.sx-box h2{font-family:var(--w-serif);font-weight:400;font-size:clamp(22px,2.2vw,32px);line-height:1.05;margin:0}
 
-/* desktop hover: description appears in the left column */
-.si-detail{display:none}
-.si-head.has-detail .si-detail{display:block}
-.si-head.has-detail .si-intro{display:none}
-.sd-num{display:block;font-size:11px;letter-spacing:.18em;color:var(--w-dim);margin-bottom:10px}
-.sd-name{display:block;font-family:var(--w-serif);font-weight:400;font-size:clamp(22px,2.2vw,32px);line-height:1.12;margin-bottom:12px}
+/* numbers hidden (kept in the HTML because work.js can read them) */
+.si-num,.sd-num{display:none}
 
-/* the list: thin lines that draw themselves (--p goes 0 to 1 while scrolling in) */
-.si-list{list-style:none;margin:0;padding:0}
-.si-row{position:relative}
-.si-row::before{
-  content:"";position:absolute;left:0;right:0;top:0;height:1px;
-  background:var(--w-line);transform-origin:left center;transform:scaleX(var(--p,1));
+.si-list{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--card-gap);
+  border:0;
 }
-.si-row:last-child::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--w-line)}
+
+/* ===== LIQUID GLASS (heading, every card, text panel) ===== */
+.sx-top,
+.si-row,
+.sx-panel{
+  position:relative;
+  border:1px solid color-mix(in srgb,var(--w-fg) 20%,transparent);
+  border-radius:var(--card-radius);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--w-fg) var(--glass-a),transparent) 0%,
+      color-mix(in srgb,var(--w-fg) calc(var(--glass-a) * .3),transparent) 45%,
+      color-mix(in srgb,var(--w-fg) calc(var(--glass-a) * .65),transparent) 100%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%) brightness(1.08);
+  backdrop-filter:blur(18px) saturate(160%) brightness(1.08);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb,var(--w-fg) 35%,transparent),
+    inset 0 -1px 0 color-mix(in srgb,var(--w-fg) 8%,transparent),
+    0 8px 24px rgba(0,0,0,.28);
+  overflow:hidden;
+  transition:background .3s,border-color .3s,box-shadow .3s;
+}
+.sx-top::before,
+.si-row::before,
+.sx-panel::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:radial-gradient(120% 80% at 20% 0%,color-mix(in srgb,var(--w-fg) 18%,transparent),transparent 55%);
+}
+.sx-top > *,
+.sx-panel > *{position:relative;z-index:1}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .sx-top,.si-row,.sx-panel{background:color-mix(in srgb,var(--w-bg) 82%,transparent)}
+}
 
 .si-btn{
-  appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:0;
-  width:100%;margin:0;font:inherit;color:var(--w-fg);text-align:left;cursor:pointer;
-  display:grid;grid-template-columns:clamp(44px,5vw,72px) minmax(0,1fr) 20px;
-  align-items:baseline;column-gap:16px;
-  padding:clamp(16px,2vw,26px) 0;
+  appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:inherit;
+  position:relative;z-index:1;
+  width:100%;height:100%;margin:0;font:inherit;color:var(--w-fg);text-align:left;cursor:pointer;
+  display:grid;align-content:center;
+  min-height:58px;padding:10px 14px;
+  transition:background .2s,color .2s;
 }
-.si-num{font-size:11px;letter-spacing:.14em;color:var(--w-dim);font-variant-numeric:tabular-nums;transition:color .25s}
-.si-name{display:block;overflow:hidden;font-family:var(--w-serif);font-size:clamp(24px,2.7vw,42px);line-height:1.12}
-.si-name > span{display:block;translate:0 0;transition:translate .35s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.si-name{display:block;font-family:var(--w-serif);font-size:clamp(15px,1.25vw,18px);line-height:1.15}
+.si-desc{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0}
 
-/* plus sign (phones / tablets) */
-.si-plus{position:relative;width:14px;height:14px;align-self:center;justify-self:end}
-.si-plus::before,.si-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;transition:transform .3s}
-.si-plus::after{transform:rotate(90deg)}
-.si-row.open .si-plus::after{transform:rotate(0)}
+/* active card (work.js adds .on on hover / focus / tap) */
+.si-row.on{
+  border-color:color-mix(in srgb,var(--w-fg) 42%,transparent);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--w-fg) var(--glass-a-on),transparent) 0%,
+      color-mix(in srgb,var(--w-fg) calc(var(--glass-a-on) * .38),transparent) 50%,
+      color-mix(in srgb,var(--w-fg) calc(var(--glass-a-on) * .62),transparent) 100%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb,var(--w-fg) 50%,transparent),
+    inset 0 -1px 0 color-mix(in srgb,var(--w-fg) 10%,transparent),
+    0 12px 30px rgba(0,0,0,.36);
+}
+.si-row.on .si-btn{background:none;color:var(--w-fg)}
+@media (hover:hover){
+  .si-btn:hover{background:none;color:var(--w-fg)}
+}
+.si-btn:focus-visible{outline:2px solid currentColor;outline-offset:-3px}
 
-/* description under the row (phones / tablets) */
-.si-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-.si-more > div{overflow:hidden;min-height:0}
-.si-more p{margin:0;padding:0 0 22px calc(clamp(44px,5vw,72px) + 16px);max-width:62ch;font-size:14px;line-height:1.6;color:var(--w-dim)}
-.si-row.open .si-more{grid-template-rows:1fr}
+/* text panel */
+.sx-panel{margin-top:var(--card-gap);padding:14px 18px;min-height:96px}
+.si-intro,.sd-desc{font-size:12.5px;line-height:1.6;color:var(--w-dim);margin:0}
+.si-detail{display:none}
+.sx-panel.has-detail .si-detail{display:block}
+.sx-panel.has-detail .si-intro{display:none}
+.sd-name{display:block;font-family:var(--w-serif);font-weight:400;font-size:clamp(17px,1.5vw,21px);line-height:1.12;margin-bottom:8px}
 
-/* desktop with a mouse: hover effects, and the description lives in the left column */
-@media (min-width:900px) and (hover:hover){
-  .si-plus{display:none}
-  .si-btn{grid-template-columns:clamp(44px,5vw,72px) minmax(0,1fr)}
-  .si-more{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-  .si-row:hover .si-name > span,.si-row.on .si-name > span{translate:14px 0}
-  .si-row:hover .si-num,.si-row.on .si-num{color:var(--w-fg)}
-  .si-list:hover .si-row:not(:hover) .si-name > span{opacity:.35}
+/* ===== ENTRANCE ANIMATION =====
+   .sx-js is added by work.js (so without JS everything stays visible).
+   .sx-in is added by work.js when the box becomes visible in scene 2. */
+.sx-box.sx-js .sx-top,
+.sx-box.sx-js .si-row,
+.sx-box.sx-js .sx-panel{
+  opacity:0;
+  transform:translateY(16px) scale(.97);
+  transition:
+    opacity .35s ease,
+    transform .35s ease,
+    background .3s,border-color .3s,box-shadow .3s;
+}
+.sx-box.sx-js.sx-in .sx-top,
+.sx-box.sx-js.sx-in .si-row,
+.sx-box.sx-js.sx-in .sx-panel{
+  opacity:1;
+  transform:none;
+  transition:
+    opacity .7s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 70ms),
+    transform .7s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 70ms),
+    background .3s,border-color .3s,box-shadow .3s;
+}
+.sx-top{--i:0}
+.si-row:nth-child(1){--i:1}  .si-row:nth-child(2){--i:2}
+.si-row:nth-child(3){--i:3}  .si-row:nth-child(4){--i:4}
+.si-row:nth-child(5){--i:5}  .si-row:nth-child(6){--i:6}
+.si-row:nth-child(7){--i:7}  .si-row:nth-child(8){--i:8}
+.si-row:nth-child(9){--i:9}  .si-row:nth-child(10){--i:10}
+.sx-panel{--i:11}
+
+/* the "(01) Architecture" caption must not run under the box */
+@media (min-width:900px){
+  .cap{max-width:min(460px,calc(62vw - 2 * var(--w-pad) - 16px))}
 }
 
-/* tablets and phones: one column, the title first */
-@media (max-width:899px){
-  .block.svc-idx{grid-template-columns:minmax(0,1fr);row-gap:40px}
-  .si-head{position:static}
-  .si-count{margin-top:20px}
-  .si-name{font-size:clamp(22px,6vw,32px)}
-  .si-btn{grid-template-columns:44px minmax(0,1fr) 20px}
-  .si-more p{padding-left:60px}
+/* short desktop screens */
+@media (min-width:900px) and (max-height:760px){
+  .si-btn{min-height:50px;padding:8px 12px}
+  .sx-panel{min-height:80px;padding:10px 16px}
+  .sx-top{padding:10px 16px}
+}
+
+/* ===== SMALL WINDOWS AND TABLETS (520 - 899px): ONE column ===== */
+@media (min-width:520px) and (max-width:899px){
+  .sx-box{
+    width:min(58vw,420px);
+    top:calc(80px + env(safe-area-inset-top,0px));bottom:auto;margin-block:0;
+    height:calc(100svh - 96px - env(safe-area-inset-top,0px));
+    display:flex;flex-direction:column;
+  }
+  .sx-top{flex:none;padding:10px 14px}
+  .sx-box h2{font-size:22px}
+  .si-list{flex:1;min-height:0;overflow:auto;grid-template-columns:minmax(0,1fr);align-content:start;padding:2px}
+  .si-btn{min-height:0;padding:9px 14px}
+  .si-name{font-size:14px;line-height:1.15}
+  .sx-panel{flex:none;height:104px;min-height:0;overflow:auto;padding:10px 14px}
+  .si-intro,.sd-desc{font-size:12px;line-height:1.5}
+  .sd-name{font-size:16px;margin-bottom:6px}
+  .cap{max-width:calc(42vw - var(--w-pad) - 8px)}
+  .cap h3{font-size:clamp(18px,3.6vw,24px)}
+}
+
+/* ===== PHONES (under 520px): box at the bottom ===== */
+@media (max-width:519px){
+  .sx-box{
+    --card-gap:6px;
+    left:var(--w-pad);right:var(--w-pad);width:auto;
+    top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));margin-block:0;
+    max-height:62svh;overflow:auto;
+  }
+  .sx-top{padding:8px 12px}
+  .sx-box h2{font-size:20px}
+  .si-btn{min-height:0;padding:9px 11px}
+  .si-name{font-size:13px}
+  .sx-panel{min-height:80px;padding:10px 14px}
+  .si-intro,.sd-desc{font-size:12px;line-height:1.5}
+  .sd-name{font-size:15px;margin-bottom:6px}
+  .cap.c2{display:none}
 }
 
 /* ===== PROJECTS: butter-paper sheet between two projects ===== */
@@ -185,4 +237,44 @@ header{
 /* ===== REDUCED MOTION ===== */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+
+/* ===== GLASS (final) =====
+   Keep this block LAST in the file so it overrides the earlier glass rules. */
+.sx-box{
+  --glass-fill:7%;       /* transparency of the fill (rgba 0.07) */
+  --glass-blur:6px;      /* blur */
+  --glass-edge:10%;      /* border brightness (rgba 0.10) */
+}
+
+.sx-box::before{content:none}
+
+.sx-top,
+.si-row,
+.sx-panel{
+  background:color-mix(in srgb,var(--w-fg) var(--glass-fill),transparent);
+  -webkit-backdrop-filter:blur(var(--glass-blur));
+  backdrop-filter:blur(var(--glass-blur));
+  border:1px solid color-mix(in srgb,var(--w-fg) var(--glass-edge),transparent);
+  border-radius:var(--card-radius);
+  box-shadow:0 12px 32px -12px rgba(0,0,0,.35);
+}
+
+/* remove the sheen and grain layers from earlier versions */
+.sx-top::before,.si-row::before,.sx-panel::before,
+.sx-top::after,.si-row::after,.sx-panel::after{content:none}
+
+/* hover / tap: a little brighter */
+.si-row.on{
+  background:color-mix(in srgb,var(--w-fg) calc(var(--glass-fill) * 2),transparent);
+  border-color:color-mix(in srgb,var(--w-fg) calc(var(--glass-edge) * 2.2),transparent);
+  box-shadow:0 12px 32px -12px rgba(0,0,0,.35);
+}
+
+.sx-box h2,.sd-name{font-family:var(--w-serif);font-weight:400;letter-spacing:normal}
+
+/* phones and touch screens: lighter blur */
+@media (max-width:760px),(pointer:coarse){
+  .sx-box{--glass-blur:4px}
 }
